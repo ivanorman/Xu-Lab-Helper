@@ -1,5 +1,3 @@
-
-
 # Xu Lab Decks — Lucien Setup Guide
 
 This repository contains the code and configuration to run Lucien, an MCP-based assistant for managing and searching the Xu Lab’s slide decks. Lucien parses PowerPoint presentations, extracts text and images, generates captions and structured metadata, and builds a searchable database.
@@ -134,3 +132,15 @@ Lucien expands known aliases (like `tMoTe2`, `MoTe₂`, `twisted MoTe2`), search
 - `data/samples` and `outputs/images` are excluded from git commits but kept as folders.
 - For a clean rebuild, remove contents of `outputs/schema_records` and `outputs/index_schema`.
 - Avoid running from synced cloud directories; use a local path instead.
+
+---
+
+## Workspace prompt
+
+Lucien’s behavior and tool use can be customized with a workspace prompt.  
+A pre-written prompt is included in `configs/`. To use it:
+
+1. Open Lucien’s workspace setup panel.
+2. Copy the contents of the prompt file from `configs/`.
+3. Paste it into the workspace prompt field in Lucien.
+4. Save and restart Lucien for the settings to take effect.
