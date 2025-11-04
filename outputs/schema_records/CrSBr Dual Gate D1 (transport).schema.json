@@ -1,0 +1,30 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-01",
+  "materials": [
+    "DC",
+    "MR",
+    "OI"
+  ],
+  "experiment_type": [
+    "iv",
+    "magnetoresistance",
+    "photoluminescence",
+    "transport"
+  ],
+  "temperature_K_range": [
+    23.0,
+    130.0
+  ],
+  "magnetic_field_T_range": [
+    0.0,
+    8.0
+  ],
+  "summary": "iv magnetoresistance photoluminescence",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/CrSBr Dual Gate D1 (transport).pptx"
+  },
+  "provenance": {
+    "slides": 87
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-03",
+  "materials": [
+    "BN",
+    "IV",
+    "JJs",
+    "MoTe2",
+    "SC"
+  ],
+  "experiment_type": [
+    "iv",
+    "photoluminescence",
+    "transport"
+  ],
+  "temperature_K_range": [
+    0.05,
+    1.5
+  ],
+  "magnetic_field_T_range": [
+    -5.5,
+    2023.0
+  ],
+  "summary": "iv photoluminescence transport",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MoTe2-device2-bluefors.pptx"
+  },
+  "provenance": {
+    "slides": 58
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2052-02",
+  "materials": [
+    "AO1",
+    "AO3",
+    "BG",
+    "BN",
+    "IX",
+    "PL",
+    "TG",
+    "WS2",
+    "WSe2"
+  ],
+  "experiment_type": [
+    "photoluminescence"
+  ],
+  "temperature_K_range": [
+    6.0,
+    6.0
+  ],
+  "summary": "photoluminescence",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/WSe2-WS2-WSe2 Device10 ScanningPL_12052021.pptx"
+  },
+  "provenance": {
+    "slides": 9
+  }
+}

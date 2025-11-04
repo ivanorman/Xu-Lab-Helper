@@ -1,0 +1,20 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-03",
+  "materials": [
+    "IX",
+    "PL",
+    "WS2",
+    "WSe2"
+  ],
+  "experiment_type": [
+    "photoluminescence"
+  ],
+  "summary": "photoluminescence",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/WSe2-WS2-WSe2 Device7_scanningPL test.pptx"
+  },
+  "provenance": {
+    "slides": 14
+  }
+}

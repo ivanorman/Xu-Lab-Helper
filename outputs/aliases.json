@@ -1,0 +1,57 @@
+{
+  "mote2": [
+    "MoTe2",
+    "MoTe₂",
+    "mo te2",
+    "molybdenum ditelluride"
+  ],
+  "wse2": [
+    "WSe2",
+    "WSe₂",
+    "w se2",
+    "tungsten diselenide"
+  ],
+  "crsbr": [
+    "CrSBr",
+    "cr sbr"
+  ],
+  "twisted": [
+    "twisted",
+    "t-",
+    "twist",
+    "twist-angle",
+    "θ=",
+    "moire",
+    "moiré"
+  ],
+  "transport": [
+    "transport",
+    "magnetotransport",
+    "mr",
+    "magneto-resistance"
+  ],
+  "raman": [
+    "raman",
+    "micro-raman"
+  ],
+  "rmcd": [
+    "rmcd",
+    "reflective mcd",
+    "r-mcd"
+  ],
+  "pl": [
+    "pl",
+    "photoluminescence",
+    "photo-luminescence"
+  ],
+  "tmote2": [
+    "tMoTe2",
+    "twisted MoTe₂",
+    "twisted mote2",
+    "twisted mote₂"
+  ],
+  "magnetoresistance": [
+    "MR",
+    "magnetoresistance"
+  ]
+}

@@ -1,0 +1,18 @@
+# --- Python & env ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# --- macOS & Jupyter ---
+.DS_Store
+.ipynb_checkpoints/
+
+# --- Project-specific (keep dirs, ignore their contents) ---
+data/samples/**
+!data/samples/.gitkeep
+
+outputs/images/**
+!outputs/images/.gitkeep

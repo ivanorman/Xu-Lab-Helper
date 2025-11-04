@@ -1,0 +1,23 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-03",
+  "materials": [
+    "BN",
+    "MoTe2",
+    "PL"
+  ],
+  "experiment_type": [
+    "photoluminescence"
+  ],
+  "magnetic_field_T_range": [
+    -1.0,
+    -1.0
+  ],
+  "summary": "photoluminescence",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/Zengde_MoTe2_A2_scanningpl.pptx"
+  },
+  "provenance": {
+    "slides": 16
+  }
+}

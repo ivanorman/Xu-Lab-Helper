@@ -1,0 +1,13 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-03",
+  "materials": [
+    "WSe2"
+  ],
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/WSe2-bilayerWS2-WSe2 Device12.pptx"
+  },
+  "provenance": {
+    "slides": 3
+  }
+}

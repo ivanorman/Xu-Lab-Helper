@@ -1,0 +1,31 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-03",
+  "materials": [
+    "BG",
+    "BN",
+    "CG",
+    "CG1",
+    "CG2",
+    "TG"
+  ],
+  "experiment_type": [
+    "photoluminescence",
+    "transport"
+  ],
+  "temperature_K_range": [
+    4.0,
+    4.0
+  ],
+  "magnetic_field_T_range": [
+    0.0,
+    2.0
+  ],
+  "summary": "photoluminescence transport",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/t-MoTe2-D2.pptx"
+  },
+  "provenance": {
+    "slides": 8
+  }
+}

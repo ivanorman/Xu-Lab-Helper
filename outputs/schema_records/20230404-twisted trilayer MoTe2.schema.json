@@ -1,0 +1,34 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2023-04-04",
+  "materials": [
+    "BG",
+    "BN",
+    "FE",
+    "IX",
+    "MX",
+    "MoTe2",
+    "OM",
+    "PL",
+    "TG",
+    "XM"
+  ],
+  "experiment_type": [
+    "photoluminescence"
+  ],
+  "temperature_K_range": [
+    5.8,
+    5.8
+  ],
+  "magnetic_field_T_range": [
+    2.0,
+    12.0
+  ],
+  "summary": "photoluminescence",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/20230404-twisted trilayer MoTe2.pptx"
+  },
+  "provenance": {
+    "slides": 27
+  }
+}

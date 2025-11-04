@@ -1,0 +1,32 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-03",
+  "materials": [
+    "FM",
+    "MoTe2",
+    "NB",
+    "PL",
+    "RL"
+  ],
+  "experiment_type": [
+    "iv",
+    "photoluminescence",
+    "reflectance",
+    "rmcd"
+  ],
+  "temperature_K_range": [
+    1.6,
+    15.0
+  ],
+  "magnetic_field_T_range": [
+    0.0,
+    8.5
+  ],
+  "summary": "iv photoluminescence reflectance",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MoTe2 secondary peak summary.pptx"
+  },
+  "provenance": {
+    "slides": 41
+  }
+}

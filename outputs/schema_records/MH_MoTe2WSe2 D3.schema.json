@@ -1,0 +1,27 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-03",
+  "materials": [
+    "HQ",
+    "MoTe2",
+    "WSe2"
+  ],
+  "experiment_type": [
+    "transport"
+  ],
+  "temperature_K_range": [
+    4.0,
+    4.0
+  ],
+  "magnetic_field_T_range": [
+    -0.5,
+    7.0
+  ],
+  "summary": "transport",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MH_MoTe2WSe2 D3.pptx"
+  },
+  "provenance": {
+    "slides": 13
+  }
+}

@@ -1,0 +1,35 @@
+{
+    "name": "xu-lab-decks",
+    "description": "MCP tools for Xu Lab decks (ETL, search).",
+    "command": [
+        "python",
+        "-m",
+        "mcp_server.main"
+    ],
+    "env": {
+        "PYTHONPATH": "src"
+    },
+    "tools": [
+        {
+            "name": "ingest",
+            "description": "Walk a folder of decks (.pptx/.pdf) and write a manifest.jsonl",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "root": {
+                        "type": "string",
+                        "description": "Directory to scan"
+                    },
+                    "out": {
+                        "type": "string",
+                        "description": "Path to write manifest.jsonl"
+                    }
+                },
+                "required": [
+                    "root",
+                    "out"
+                ]
+            }
+        }
+    ]
+}

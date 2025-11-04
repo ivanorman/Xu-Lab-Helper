@@ -1,0 +1,31 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-01",
+  "materials": [
+    "AS",
+    "LP1",
+    "LP2",
+    "NbSe2",
+    "TaS2",
+    "UP"
+  ],
+  "experiment_type": [
+    "photoluminescence",
+    "raman"
+  ],
+  "temperature_K_range": [
+    0.08,
+    16.5
+  ],
+  "magnetic_field_T_range": [
+    -4.04,
+    8.0
+  ],
+  "summary": "photoluminescence raman",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/2502_4Hb-TaS2_Raman_RMCD_Attodry.pptx"
+  },
+  "provenance": {
+    "slides": 33
+  }
+}

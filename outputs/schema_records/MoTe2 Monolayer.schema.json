@@ -1,0 +1,18 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-03",
+  "materials": [
+    "BN",
+    "MoTe2"
+  ],
+  "temperature_K_range": [
+    8.0,
+    8.0
+  ],
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MoTe2 Monolayer.pptx"
+  },
+  "provenance": {
+    "slides": 10
+  }
+}

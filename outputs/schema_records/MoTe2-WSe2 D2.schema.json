@@ -1,0 +1,23 @@
+{
+  "schema_version": "deck-schema-v1",
+  "date": "2025-11-03",
+  "materials": [
+    "IV",
+    "MoTe2",
+    "WSe2"
+  ],
+  "experiment_type": [
+    "iv"
+  ],
+  "temperature_K_range": [
+    2.0,
+    2.0
+  ],
+  "summary": "iv",
+  "file": {
+    "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MoTe2-WSe2 D2.pptx"
+  },
+  "provenance": {
+    "slides": 4
+  }
+}
