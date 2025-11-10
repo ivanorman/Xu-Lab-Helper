@@ -1,30 +1,62 @@
 {
+  "$schema": null,
+  "title": "Magnetotransport in a Dual-Gated Bilayer CrSBr Device",
+  "description": "Extensive magnetotransport investigation of a dual-gated bilayer CrSBr device (D1). The study explores the electrical properties (Rxx, Rxy) as a function of temperature (23K, 60K), dual-gate voltages (carrier density and electric field), and magnetic field (strength and orientation). Key observations include strong magnetoresistance (MR) with hysteresis, gate-tunable insulating states, and significant magnetic anisotropy revealed by in-plane field rotation. The data shows a gate-tunable sign change in the MR, possibly indicating a weak localization to weak anti-localization transition, and characteristic 'bunny ear' features in the Hall resistance.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-01",
-  "materials": [
-    "DC",
-    "MR",
-    "OI"
-  ],
-  "experiment_type": [
-    "iv",
-    "magnetoresistance",
-    "photoluminescence",
-    "transport"
-  ],
-  "temperature_K_range": [
-    23.0,
-    130.0
-  ],
-  "magnetic_field_T_range": [
-    0.0,
-    8.0
-  ],
-  "summary": "iv magnetoresistance photoluminescence",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/CrSBr Dual Gate D1 (transport).pptx"
   },
   "provenance": {
     "slides": 87
-  }
+  },
+  "_nl_context": "[Slide 0]\nDual Gate Device 1 11/26/2021\nDevice Fab: John C\nMeasurement: John C / Dmitry / jiaqi help too\n\n[Slide 1]\nGate Test, 60 K\nTg: -8 <->+7\nBg: -10 <->+10\n\n[Slide 2]\nPush the gate more, T = 23 K\nNote: accidentally applied huge voltage to back gate with voltage amplifier. However, after rechecking back gate, it somehow looks ok\n\n[Slide 3]\nDevice images\n9\n10\n3\n4\n5\n6\n7\n8\nThis device could possibly have mixed 1/2L signal on right side of contacts, but left should be pure bilayer. It is a bit hard to see the right edge of the flake because there is a fold in top gate graphite as well.\n\n[Slide 4]\nCool down curve\n5 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nAll contacts worked at room temperature, phase gets really bad at low T – hopefully gate can help or we might have to switch to two terminal.\n\n[Slide 5]\nField sweep at 60 K\n5 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nWarm up to 60 K where there is reasonably good phase to check magnetotransport at 0 gate\nB || b\n\n[Slide 6]\nField sweep at 60 K\n5 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nB ||c\n\n[Slide 7]\nField sweep at 60 K – Zoom in\n5 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\n\n[Slide 8]\nDual gate sweep at 60 K, 0 T\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nPretty straight line – what are these more insulating states?\nLine cut at Vbg = 9.395 V\n\n[Slide 9]\nDual gate sweep at 60 K – Converted to n and D\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nStrange insulating state develops at high negative electric field\n\n[Slide 10]\nDoping vs Temperature Dependence – 0 field\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\n\n[Slide 11]\nDoping vs Temperature Dependence – Line cuts\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\n\n[Slide 12]\nDoping vs MR Sweep\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nRxx 1\nRxx 1\n\n[Slide 13]\nDoping vs MR Sweep – Select Voltages\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nNote: steps may be coming from SR560 or lockin sensitivity being bad. I increased range for temperature dependence, but didn’t decrease again. Will check tomorrow to make sure (locked out tonight). Also, based on this plot and previous slide, it seems we are close to something more drastic happening. Might be worth pushing gate once we explore some other things.\n-8 V\n+7 V\n\n[Slide 14]\nCheck steps at high doping, Vt = Vb = 7 V\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nSR560 gain 50\nSR560 gain 500\nSteps don’t seem to be real, but MR % is insensitive to the gain.\n\n[Slide 15]\nDoping vs MR Sweep – Zoom in, Rxx\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\n\n[Slide 16]\nSome weird features in Rxy\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\n\n[Slide 17]\nE field vs MR Sweep, Vb = - Vt, 60 K\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\n-\n-\n\n[Slide 18]\nSelect fields, Vb = - Vt, 60 K\n10 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\n-\n-\nV = 0 V\nV = -8 V\nV = 7 V\nAt high E field, the loop either disappears or becomes buried in the noise (why is it so noisy??)\n\n[Slide 19]\nE field vs MR Sweep, Vb = - Vt, 60 K, finer dependence\n20 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\n-\n-\nNote: 10 mV DC bias also applyied to 6-10\n\n[Slide 20]\nPush the gate further\n-\n-\nKeep Vt fixed at 7.5 V, and increase Vbg to -10 V\n20 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nNote: 10 mV DC bias also applyied to 6-10\nContact becomes less noisy and the loop clearer at higher -Vbg\n-7.5 V\n-10 V\nMaybe no loop? Hard to tell given how noisy. Maybe optics better?\n\n[Slide 21]\nC axis doping dependence\n-\n-\n20 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nNote: 10 mV DC bias also applyied to 6-10\n\n[Slide 22]\nC axis doping dependence\n-\n-\n20 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nNote: 10 mV DC bias also applyied to 6-10\n\n[Slide 23]\nAntisymmetrize c axis data\n-\n-\n20 nA 6 to 10\nRxx1 = 5 to 4\nRxx2 = 4 to 3\nRxy = 4 to 8\nNote: 10 mV DC bias also applyied to 6-10\nVg = 7 V\nVg = 0 V\nVg = -8 V\nAnti symmetric spikes gate tuned?\n\n[Slide 24]\nTo do list:\nMegasweep, Vbg, Vtg, @60K 0T, 6 hours\nTemperature dependence when sweeping Vtg (Vbg) while sweeping T slowly from 60K to freezing. Overnight.\n\n[Slide 25]\nHorizontal rotator\n\n[Slide 26]\nGate Test, 60 K\nTg: -8 <->+7\nBg: -10 <->+10\nNote: wrong  factor\n\n[Slide 27]\nDevice images\n6\n4\n3\n5\n7\n9\n10\n8\nThis device could possibly have mixed 1/2L signal on right side of contacts, but left should be pure bilayer. It is a bit hard to see the right edge of the flake because there is a fold in top gate graphite as well.\n\n[Slide 28]\n20 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\n9\n7\n5\n3\n4\n8\nConfiguration 1:\n9\n7\n5\n3\n4\n8\nConfiguration 2:\nI\n20 nA\nIsd = 5-8\nVxy1 = 3-7\nVxx2 = 7-9\nVxy2 = 4-9\nConfiguration – John double check later that OI is not rotated 180 degrees\nI\nB\n\n[Slide 29]\nIn plane rotation data\nBunny ears feature is very apparent in Rxy (see next slide)\nAlso clear the field it corresponds to starts to diverge around 5 degs or so\n10 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\n\n[Slide 30]\nIn plane rotation data, a closer look\n\n[Slide 31]\nIn plane rotation data Rxx2 (cleaner?)\n\n[Slide 32]\nCoarse gate map, take 2\n20 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\nContact issues / resistive features at high – E field are gone now somehow.\n\n[Slide 33]\nCoarse gate map, take 2\n\n[Slide 34]\nDual map, 0 T\nIsd=94, 20nA\nVxx1 = 75\nVxx2 = 53\nVxy = 58\nRxx1\nRxx2\nRxx1 log\nRxx2 log\n\n[Slide 35]\nDual gate map, 1.5 T along b (90 deg)\nIsd=94, 20nA\nVxx1 = 75\nVxx2 = 53\nVxy = 58\nAngle = 90 deg\nRxx1\nRxx2\nRxx1 log\nRxx2 log\n\n[Slide 36]\nDual gate map, 1.5 T along a (10 deg)\nRxx1\nRxx2\nRxx1 log\nRxx2 log\n\n[Slide 37]\nMagnetoresistance map, 1.5 T along b (90 deg)\nRxx1, 0 T\nRxx1, 1.5T\nMRxx1, 1.5T\nThis map doesn’t reach switching to positive MR yet?\nPocket with large negative MR is interesting as well?\nPotentially let’s consider doing B sweeps here briefly\n\n[Slide 38]\nMagnetoresistance map, 1.5 T along b (90 deg)\nRxx2, 0 T\nRxx2, 1.5 T\nMRxx2, 1.5T\n\n[Slide 39]\nMagnetoresistance map, 1.5 T along b (90 deg)\nRxy, 0 T\nRxy, 1.5 T\nMRxy, 1.5T\n\n[Slide 40]\nMagnetoresistance map, 1.5 T along a (10 deg)\nRxx1, 0 T\nRxx1, 1.5 T\nMR changes sign\nNegative region is still there\nMRxx1 along a, 1.5T\n\n[Slide 41]\nMagnetoresistance map, 1.5 T along a (10 deg)\nRxx2, 1.5 T\nRxx2, 0 T\nMRxx2 along a, 1.5T\n\n[Slide 42]\nMagnetoresistance map, 1.5 T along a (10 deg)\nRxy, 0 T\nRxy, 1.5 T\nMRxy along a, 1.5T\n\n[Slide 43]\nMagnetoresistance map, 1.5 T along a (10 deg), sign change, MRxx1\n\n[Slide 44]\nCompare MR along a (10 deg) and b (90 deg)\nMRxx1 along b, 1.5T\nMRxx1 along a, 1.5T\nTrends are very similar, in case of a it changes sign\nNegative region is present in both maps\nCould there be some weird band structure modification with b field which we see in those maps (besides MR effects)?\nNote – color scale ranges are different\n\n[Slide 45]\nDoping dependent MR, rotator angle = 0° (should be roughly along a)\n20 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\ndMRxx2 /dB down\n\n[Slide 46]\nDoping dependent MR, rotator angle = 0° (should be roughly along a)\n20 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\n\n[Slide 47]\nDoping dependent MR, rotator angle = 0°, select voltages and other plots\n20 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\nSomehow the “bunny” features in Rxy are gone now, and the MRR is much more tunable. Is there a phase transition? Maybe optics can help?\nSign of MRR changes\nJiaqi: Looks like weak localization to WAL transition\nJohn C: does that make sense? Since the negative MRR likely comes from layered AFM – and the shape of MRR does not look like WAL to me (but need to read more)\n\n[Slide 48]\nE field dependent MR, rotator angle = 10°\n20 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\n\n[Slide 49]\nE field dependent MR, rotator angle = 10°, linecuts\n20 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\n\n[Slide 50]\nIn plane rotation data, Vtg = Vbg = 7.2\n20 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\n\n[Slide 51]\nIn plane rotation data, Vtg = Vbg = 7.2\n20 nA\nIsd=94\nVxx1 = 75\nVxx2 = 53\nVxy = 58\n\n[Slide 52]\nIn pl…",
+  "sample": {
+    "geometry": "Dual-gated Hall bar",
+    "layers": [
+      "Bilayer CrSBr"
+    ],
+    "device_name": "D1",
+    "materials": [
+      "CrSBr",
+      "Graphite",
+      "hBN"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "current": "5nA, 10nA, 20nA",
+      "temperature": "23K, 60K",
+      "gate_voltage_top": "-8V to +7.5V",
+      "gate_voltage_bottom": "-10V to +10V",
+      "magnetic_field": "up to 1.5T"
+    },
+    "technique": "Four-point magnetotransport (Rxx, Rxy)"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Magnetic Semiconductors",
+    "Spintronics",
+    "Magnetotransport"
+  ],
+  "authors": [
+    "John C",
+    "Dmitry",
+    "Jiaqi"
+  ],
+  "keywords": [
+    "CrSBr",
+    "bilayer",
+    "magnetotransport",
+    "dual gate",
+    "magnetic semiconductor",
+    "antiferromagnetism",
+    "magnetoresistance",
+    "Hall effect",
+    "anisotropy",
+    "weak localization"
+  ]
 }

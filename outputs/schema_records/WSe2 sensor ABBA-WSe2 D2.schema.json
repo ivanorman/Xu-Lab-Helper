@@ -1,30 +1,53 @@
 {
+  "$schema": null,
+  "title": "WSe2 Sensor for Probing Twisted Graphene States",
+  "description": "Investigation of an AB-BA stacked graphene device (D2) using a monolayer WSe2 flake as a local optical sensor. The WSe2 is in direct contact with the graphene. The study employs scanning photoluminescence (PL) and differential reflectance (dR/R) at 4K to probe the graphene's electronic states. By measuring the gate-dependent optical response of the WSe2 sensor, the experiment aims to detect features corresponding to the underlying graphene's properties, such as insulating states at integer fillings (nu=-4) and potential spin-polarized 'halo' regions. Polarization-resolved measurements are also performed to probe for energy splittings in the WSe2 1s exciton state.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "AB",
-    "BA",
-    "BS",
-    "CW",
-    "HeNe",
-    "LP",
-    "PL",
-    "WSe2"
-  ],
-  "experiment_type": [
-    "iv",
-    "photoluminescence",
-    "transport"
-  ],
-  "temperature_K_range": [
-    4.0,
-    4.0
-  ],
-  "summary": "iv photoluminescence transport",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/WSe2 sensor ABBA-WSe2 D2.pptx"
   },
   "provenance": {
     "slides": 22
-  }
+  },
+  "_nl_context": "[Slide 0]\nWSe2 sensor of twisted graphene states\nABBA-WSe2 D2\n\n[Slide 1]\nDevice\nMonolayer WSe2 on top of AB-BA, in direct contact\ntransport\n\n[Slide 2]\nScanningPL base T,\nsensor reading 4K\nGate leakage test\nCan sense the gate turn on feature, this shows that both gates are working properly\n\n[Slide 3]\nSample spot\nbkg spot\nScanningPL 4K\nWhite light dR/R\n10nW 30s integration\nThere is a difference\nBackground substraction is not perfect, too many different layer region in the device\n\n[Slide 4]\nScanningPL 4K\nWhite light dR/R\n10nW 90s integration\nCertainly some change, but still too noisy\nsmoothed\n\n[Slide 5]\nAdd a constant count offset to the background spectrum:\n\n[Slide 6]\nInstead of using bkg from another spot,\nBy using Vbg=0V spectrum as bkg\ndR/R = (R-R(Vbg=0))/R(Vbg=0)\nThese feature looks more strong\n\n[Slide 7]\nScanningPL 4K\nWhite light dR/R\n10nW 30s integration\nGate dependence Vbg -4V to 4V, 0.04V step\nThere is a huge additional background, most likely from sample drifting overtime\nTake Vbg=0 spectrum as background\n\n[Slide 8]\n\n[Slide 9]\nScanningPL 4K\nWhite light dR/R\n10nW 30s integration\nGate dependence Vbg -4V to 4V,\n0.1V step\nWith periodic background substraction, signal is much better\nFor this measurement, reflection background is taken at the same spot but doped to the remote band (Vt=0,Vb=-4)\nBackground spectrum is taken roughly every minute to minimize drift issue\n\n[Slide 10]\nGraphene/WSe2 reflection spectrum\ntDBG/WSe2 reflection spectrum\nvery different behavior,\n2s state energy remain almost fixed, not sensitive to carrier density that much\n\n[Slide 11]\nScanningPL 4K\nWhite light dR/R\n10nW 30s integration\nGate dependence Vtg -2V to 2V,\n0.1V step\n\n[Slide 12]\nScanningPL 4K\nWhite light dR/R\n10nW 30s integration\nGate dependence Vbg -4V to 4V,  Vtg = 1V\n0.1V step\n\n[Slide 13]\nScanningPL 4K\nWhite light dR/R\n10nW 30s integration\nGate dependence Vbg -4V to 4V, Vtg = -1V\n0.1V step\nMuch more noisy compared with previous data, the change of Vtg is related?\n\n[Slide 14]\nScanningPL 4K\nWhite light dR/R\n10nW 30s integration\nGate dependence Vbg -4V to 4V,  Vtg = -1.8V\n0.1V step\n\n[Slide 15]\nTake longer integration, 5 mins:\nThe features are more clear\n\n[Slide 16]\nScanningPL 4K\nWhite light dR/R\n10nW 300s integration\nGate dependence Vbg -4V to 4V,  Vtg = -1.8V\n0.2V step\n300 s integration\n30 s integration\nLonger integration gives some interference in the background\n\n[Slide 17]\nScanningPL 4K\nWhite light dR/R Polar resolved\n3nW 60s integration\nLP Hin\nHWP\nQWP\nsample\nccd\nNear normal, BS\nThe goal is to probe 1s state, to see if there will be energy splitting (circular base) when dope the twisted graphene into the halo region (spin-polarized state)\nin halo\n\n[Slide 18]\nIn halo\n\n[Slide 19]\nPL HeNe 633nm CW\n10uW 5s integration\nAt Vtg = 0V, Vbg = 0V\nAt Vtg = 0V, Vbg map\nAlthough in direct contact with graphene, the exciton emission is not fully quenched\nThe rate is about ~ 10 cts per second per uW\nabout 10% change with gate voltage\nPL enhancement at Vbg = -2.5V corresponds to nu=-4 insulating state, but no clear correspondence on the electron doping side\n\n[Slide 20]\nAt Vtg = -1.8 V, Vbg map\nPL enhancement at Vbg = -2V corresponds to nu=-4 insulating state, again no clear correspondence on the electron doping side\n\n[Slide 21]\nAt Vtg = 2 V, Vbg map",
+  "sample": {
+    "geometry": "Heterostructure, Monolayer WSe2 on AB-BA stacked graphene",
+    "device_name": "D2",
+    "materials": [
+      "WSe2",
+      "Graphene"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "laser_power": "10nW, 3nW, 10uW",
+      "temperature": "4K",
+      "integration_time": "5s, 30s, 60s, 90s, 300s"
+    },
+    "technique": "Scanning Photoluminescence (PL) Spectroscopy, Differential Reflectance (dR/R) Spectroscopy"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Heterostructures",
+    "Graphene",
+    "Remote Sensing",
+    "Photoluminescence"
+  ],
+  "authors": [],
+  "keywords": [
+    "WSe2 sensor",
+    "AB-BA graphene",
+    "scanning PL",
+    "photoluminescence",
+    "differential reflectance",
+    "remote sensing",
+    "gate dependence",
+    "insulating states",
+    "spin-polarized states",
+    "exciton"
+  ]
 }

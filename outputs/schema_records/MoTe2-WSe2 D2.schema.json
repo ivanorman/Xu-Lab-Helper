@@ -1,23 +1,50 @@
 {
+  "$schema": null,
+  "title": "Electrical Characterization of a MoTe2-WSe2 Heterostructure Device",
+  "description": "Electrical characterization of a MoTe2-WSe2 heterostructure device (D2). The device was fabricated using a shadow mask for Pt contacts and subsequent Cr/Au evaporation. Two-probe I-V curves were measured at room temperature (300K) and low temperature (2K) under various gate voltage conditions.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "IV",
-    "MoTe2",
-    "WSe2"
-  ],
-  "experiment_type": [
-    "iv"
-  ],
-  "temperature_K_range": [
-    2.0,
-    2.0
-  ],
-  "summary": "iv",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MoTe2-WSe2 D2.pptx"
   },
   "provenance": {
     "slides": 4
-  }
+  },
+  "_nl_context": "[Slide 0]\nMoTe2-WSe2 D2\n\n[Slide 1]\n2d semiconductor MoTe2\nPt with shadow mask, in chemistry evaporator\nEvap Cr/Au after transfer\nbg:10\ntg:5\n6\n7\n8\n9\n4\n3\n13\n11\n7 to 6 shorted by graphite,\n11 and 13 shorted by bulk tmd\n\n[Slide 2]\nRoom T 2 probe IV curvedc, 300ms with zero gate\nFrom bulk  tmd\n\n[Slide 3]\n2K  2 probe IV curvedc, 300ms probe 13 to 3\nZero gate\nVtg = -5V\nVbg = -10V",
+  "sample": {
+    "geometry": "Heterostructure",
+    "device_name": "D2",
+    "materials": [
+      "MoTe2",
+      "WSe2",
+      "Pt",
+      "Cr/Au",
+      "Graphite"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "gate_voltage_bottom": "-10V",
+      "temperature": "300K, 2K",
+      "gate_voltage_top": "-5V"
+    },
+    "technique": "Two-probe I-V measurement"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Heterostructures",
+    "Electrical Transport"
+  ],
+  "authors": [],
+  "keywords": [
+    "MoTe2",
+    "WSe2",
+    "heterostructure",
+    "I-V curve",
+    "two-probe measurement",
+    "electrical transport"
+  ]
 }

@@ -1,27 +1,54 @@
 {
+  "$schema": null,
+  "title": "Transport Study of a MoTe2/WSe2 Heterostructure",
+  "description": "Low-temperature electrical transport study of a MoTe2/WSe2 heterostructure (Device D3). The experiment, conducted at 4K and 50mK, uses a dual-gate geometry to map the device's conductance as a function of top and bottom gate voltages. The measurements reveal significant spatial inhomogeneity, with clear evidence of electronic domains. The study also includes magnetotransport sweeps and a Landau fan diagram showing quantum oscillations above 7T, indicating a high-quality electronic system.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "HQ",
-    "MoTe2",
-    "WSe2"
-  ],
-  "experiment_type": [
-    "transport"
-  ],
-  "temperature_K_range": [
-    4.0,
-    4.0
-  ],
-  "magnetic_field_T_range": [
-    -0.5,
-    7.0
-  ],
-  "summary": "transport",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MH_MoTe2WSe2 D3.pptx"
   },
   "provenance": {
     "slides": 13
-  }
+  },
+  "_nl_context": "[Slide 0]\nMoTe2/WSe2\nMinhao/Jiaqi\nMoTe2, HQ-Graphene,\nMinhao’s device, target at 0\n\n[Slide 1]\nDevice image and AFM\nbackgate\nWSe2 Yan938\nMoTe2 hqGraphene\n\n[Slide 2]\n\n[Slide 3]\n4K0T Check contact\n3\n5(210nA)\n6(75nA)\n7(110nA)\n12 (60nA)\n13 (125nA)\n14(210)\n8(150nA)\n4mV excitation\nContact resistance is as low as 10kohm for 5 and 14, 20 kohm for 3 and 8, but high for 12, 6, 7.\nMight be a domain near 6-12\nDomain?\nGate range:\nVtg -3.3 to 3.3\nVbg -6 to 9\n\n[Slide 4]\n4K0T dual map, 1mV excitation\n3\n5\n6\n7\n12\n13\n14\nDomain?\n8\nCurrent 3-8\nVery clear domain between 5-7…\nAlmost no mixing and no correlated state in 5-14 side\nSomething on 7-12 side.\nTry 6-7, 13-12, 7-12?\n1\n0\n\n[Slide 5]\nConfig 1 50mK 0T +-0.5T sweep, Vtg = -3.2V\n0T\n0.5T raw\n-0.5T raw\n0.5T sym\n3\n5\n6\n7\n12\n13\n14\n8\nCurrent 3-8\nbottomgate\nbottomgate\nbottomgate\nbottomgate\n\n[Slide 6]\nConfig 2 50mK 0T +-0.5T sweep, Vtg = -3.2V\n0T\n-0.5T raw\n-0.5T raw\n0.5T sym\n3\n5\n6\n7\n12\n13\n14\n8\nCurrent 3-8\n\n[Slide 7]\nConfig 3 50mK dual gate map\n3\n5\n6\n7\n12\n13\n14\n8\nCurrent 3-8\nsource 13, drain:5 6 7\nRxx 1: 12-8\nRxx 2: 14-3\nRxy: 12-14\n\n[Slide 8]\n1.Set Vbg = 0, scan Vtg from -3.3 to 3\n1mV bias\n50mK two probe scans\nElectron side can also turn on, but with much lower conductance\n\n[Slide 9]\n1.Set Vtg = -3.3, scan Vbg from 0V to 5V\n1mV bias\n50mK two probe scans\n3\n5\n6\n7\n12\n13\n14\n8\n\n[Slide 10]\n1 mV bias\nCurrent: 8 to 3\nVxx1: 12 to 13\nVxx2: 13 to 14\nVxy: 12 to 7\nConfig 4 50mK dual gate map\nConductance = current/bias\n\n[Slide 11]\nConfig 4 100mK Landau Fan\nQuantum oscillation above ~7T\nFix Vtg = -3.3 V\n\n[Slide 12]",
+  "sample": {
+    "device_name": "D3",
+    "supplier": "MoTe2 from HQ-Graphene",
+    "materials": [
+      "MoTe2",
+      "WSe2"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "temperature": "50mK, 100mK, 4K",
+      "magnetic_field": "0T, ±0.5T, up to >7T",
+      "bias_voltage": "1mV, 4mV"
+    },
+    "technique": "Multi-terminal electrical transport measurements"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Heterostructures",
+    "Electrical Transport",
+    "Quantum Oscillations"
+  ],
+  "authors": [
+    "Minhao",
+    "Jiaqi"
+  ],
+  "keywords": [
+    "MoTe2",
+    "WSe2",
+    "heterostructure",
+    "electrical transport",
+    "dual gate",
+    "domains",
+    "quantum oscillations",
+    "Landau fan",
+    "low temperature"
+  ]
 }

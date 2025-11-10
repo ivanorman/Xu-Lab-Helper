@@ -1,18 +1,53 @@
 {
+  "$schema": null,
+  "title": "PFM Analysis of Moiré Patterns in a WSe2-WS2-WSe2 Heterostructure",
+  "description": "Piezoresponse Force Microscopy (PFM) study of a WSe2-WS2-WSe2 heterostructure (Device 10). The measurements aim to characterize the moiré superlattices formed in different regions of the device, including bilayer (tWSe2-WS2, WS2-bWSe2) and trilayer (tWSe2-WS2-bWSe2) areas. Fast Fourier Transform (FFT) analysis of the high-resolution PFM images is used to determine the moiré wavelengths, revealing both a primary bilayer moiré of ~8.3nm (corresponding to ~0 degree twist angle) and larger, distorted moiré periods (19-40nm) in the trilayer regions.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "WS2",
-    "WSe2"
-  ],
-  "magnetic_field_T_range": [
-    2.0,
-    2.0
-  ],
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/PFM for WSe2-WS2-WSe2 Device 10.pptx"
   },
   "provenance": {
     "slides": 14
-  }
+  },
+  "_nl_context": "[Slide 0]\nWSe2-WS2-WSe2 Device 10\nSame angle for WSe2\nBilayer region: for both tWSe2-WS2 and WS2-bWSe2, moire wavelength ~ 8.3nm, close to 0 degree\nTrilayer region: tWSe2-WS2-bWSe2, showed bilayer moire, which is ~ 8.3nm, and larger distorted period 25 ~ 33 nm\n\n[Slide 1]\n1\n2\nMiddle WS2- Bottom WSe2\nTopWSe2-Middle WS2- Bottom WSe2\n3\n4\nRegion 1: WS2-bWSe2\nRegion 2: tWSe2-WS2\nRegion 3: tWSe2-WS2-bWSe2\nRegion 4: tWSe2-WS2-bWSe2\n\n[Slide 2]\nFFT\nInverse FFT\nRegion 1: WS2-bWSe2\nAverage moire 8.3nm, 0 degree\n\n[Slide 3]\nRegion 2: tWSe2-WS2\nAverage moire 8.31nm, 0 degree\nInverse FFT\n\n[Slide 4]\nRegion 3: tWSe2-WS2-bWSe2\n\n[Slide 5]\nLarger period: 25nm\n40nm\n\n[Slide 6]\nRegion 4: tWSe2-WS2-bWSe2\nFFT\ninverse\nFFT\nFFT\ninverse\nFFT\n\n[Slide 7]\n\n[Slide 8]\nRegion 5: tWSe2-WS2-bWSe2\nHigh resolution PFM, 500nm, 2048*2048 lines\n\n[Slide 9]\n25nm\n19nm\n~ 8 nm bilayer moire\n\n[Slide 10]\nInverse FFT (filtered noise)\n\n[Slide 11]\nRegion 6: tWSe2-WS2-bWSe2\nHigh resolution PFM, 500nm, 2048*2048 lines\n\n[Slide 12]\n\n[Slide 13]\nInverse FFT (filtered noise)",
+  "sample": {
+    "geometry": "Heterostructure with bilayer and trilayer regions",
+    "layers": [
+      "WSe2",
+      "WS2",
+      "WSe2"
+    ],
+    "device_name": "Device 10",
+    "materials": [
+      "WSe2",
+      "WS2"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "resolution": "2048x2048 lines",
+      "scan_size": "500nm"
+    },
+    "technique": "Piezoresponse Force Microscopy (PFM)"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Heterostructures",
+    "Moiré Physics",
+    "Piezoresponse Force Microscopy"
+  ],
+  "authors": [],
+  "keywords": [
+    "PFM",
+    "Piezoresponse Force Microscopy",
+    "WSe2-WS2-WSe2",
+    "heterostructure",
+    "moiré pattern",
+    "moiré superlattice",
+    "FFT"
+  ]
 }

@@ -1,34 +1,58 @@
 {
+  "$schema": null,
+  "title": "Optical Studies of Correlated States in Twisted Monolayer-Bilayer MoTe2",
+  "description": "Comprehensive optical investigation of twisted monolayer-bilayer (tML/BL) and bilayer-monolayer (tBL/ML) MoTe2 heterostructures (Sample B61) at low temperature (1.55 K) in an Attodry cryostat. The study uses polarization-resolved reflectance, RMCD, and photoluminescence (PL) to explore the rich phase space as a function of carrier density, electric displacement field (D), and magnetic field (B). Key findings include the observation of zero-field ferromagnetism (FM) at specific D-field values, correlated insulating states at both integer (-1) and fractional (-2/3, -1/3, etc.) fillings, and the determination of associated Chern numbers. The research also details the temperature dependence of these correlated states and maps out the FM domains using dual-gate control.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-01",
-  "materials": [
-    "AB",
-    "BL",
-    "FM",
-    "ML",
-    "MoTe2",
-    "PL",
-    "XD"
-  ],
-  "experiment_type": [
-    "iv",
-    "photoluminescence",
-    "reflectance",
-    "rmcd"
-  ],
-  "temperature_K_range": [
-    1.5,
-    9.0
-  ],
-  "magnetic_field_T_range": [
-    -0.72,
-    8.0
-  ],
-  "summary": "iv photoluminescence reflectance",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/WJL_B61_Oldattodry_MLBL.pptx"
   },
   "provenance": {
     "slides": 69
-  }
+  },
+  "_nl_context": "[Slide 0]\nSample B61 Old Attodry tML/BL\nWeijie Li\nT = 1.55 K\n\n[Slide 1]\nVtg:-7.3+ to 7.7+ V\nVbg:-9.4+ to 9.4+V\n2+1\n1+1\n1+2\n2+2\nBg 98\n\n[Slide 2]\n2+1\n1+1\n1+2\n2+2\n\n[Slide 3]\nNow look at the new trilayer spot 10, doping at certain D\nSpatial map\nClear D field asymmetry\n\n[Slide 4]\nTrilayer spot 10, dual gate map, exc linear, coll R, not see any dark region like Homobilayer or 1+1+1\nThe D field offset is 0.1 V/nm.\nThis is from 1+2, because positive D in the electron side and negative D in the hole side will push the carrier to the top interface (should be moire interface)\nThis is from 2+1\nOpposite correspondence\nMaybe I should reach higher doping\n\n[Slide 5]\nReflectance measurement, spatial map\nBilayer\nTrilayer\nTrilayer\n\n[Slide 6]\nReflectance measurement, spatial map\ntBL\ntTL\ntTL\ntBL\ntTL\ntTL\nThe shape is consistent with RMCD map. The left part is indeed dark but FM trialyer.\nRMCD\nFocus\ntML/BL\ntBL/ML\ntML/BL has higher energy than tBL/ML\n\n[Slide 7]\nTwisted bilayer part, polarization resolved reflectance measurement, B = 0.1 T, D = 0.035 V/nm\nIntetersting, now we do not have the non-polarized peaks between the two oppositely polarized species\n\n[Slide 8]\nTwisted trilayer part, polarization resolved reflectance measurement, B = 0.1 T, D = 0.035 V/nm\nThe same scan as before but the spectra are very different\nConsistent with RMCD polarized after n = -3e12 cm-2\n\n[Slide 9]\nTwisted trilayer part, polarization resolved reflectance measurement, B = 0 T, D = 0.1 V/nm\nFM at zero B\nKink at -1\n\n[Slide 10]\nTwisted trilayer part, optimized position, polarization resolved reflectance measurement, B = 0 T, D = 0.1 V/nm\nExcept integer state, can see fractional states, though not polarized\n\n[Slide 11]\nTwisted trilayer part, optimized position, polarization resolved reflectance measurement, B = 0 T, D = 0.035V/nm\nThe same doping at the same D as bilayer, but very different response.\nThe magnetism is weaker, consistent with FM is strongest at D =0.1 V/nm\n\n[Slide 12]\nTwisted trilayer part, optimized position, polarization resolved reflectance measurement, B = 0 T, D = 0.035V/nm\nPrevious scans are positive B initialized, now initialized at negative B\nPositive B initialized\nOpposite response stable hysteresis, no flip\n\n[Slide 13]\nTwisted trilayer part, optimized position, polarization resolved D dep, B = 0 T, n = -3.4 e12 cm^-2\nNegative B initialized\nConsistent, only near 0.1 V/nm, there is FM\n\n[Slide 14]\nTwisted trilayer part, optimized position, polarization resolved D dep, B = 0 T, n = -3.4 e12 cm^-2\nPositive B initialized\nConsistent, only near 0.1 V/nm, there is FM\n\n[Slide 15]\nReflectance spatial map, Vtg = Vbg = 0, exc linear, coll L\ntML/BL\ntML/ML\ntML/ML\n\n[Slide 16]\nConsistent FM at finite D\n\n[Slide 17]\n\n[Slide 18]\nCan see -2/3 fractional state\n\n[Slide 19]\nCurrent understanding\n(1) The zero B FM is at tA/AB (higher energy resonance), and finite B weak magnetism is at tAB/A (lower energy resonance)\nExplanation: based on previous measurements, E (tA/B)<E(tA/A)< E (natural AB), so tA/A interface is the lowest energy part in tA/AB, and tB/A is the lowest energy interface in tAB/A. Since E (tA/A)> E(tB/A), the tML/BL should be tA/AB and tBL/ML should be tAB/A.\nThe zero B FM at tA/AB (tML/BL) is at D = 0.1 V/nm, which is pointing from ML to BL, the offset is different from tA/A/A (1+1+1) structure (0.25-0.3 V/nm).\nExplanation: the hybridization in tA/AB is weaker than tA/A/A. The different part is the D offset. D>0 at tA/AB is to push holes from ML to BL, which is effectively tBA/AB, where as tA/A/A is to push the holes to tA/A interface, effectively tA/A. The extend wing feature at tA/AB is at negative D, which is tA/A interface.\ntA/AB\ntA/A/A\n\n[Slide 20]\nDFT calculation\nTwisted A/AB\nTwisted A/A/A\nNo D, triangle lattice, no topology\nConfirm the topology in tA/AB is D from ML to BL\n\n[Slide 21]\n0.05T\n1T\n2T\n3T\n4T\nreflectance dispersion, D = 0.1 V/nm, exc linear, coll L\nCan see the dispersion\n\n[Slide 22]\n0.05 T\n4 T\nZoomed in reflectance dispersion, D = 0.1 V/nm, exc linear, coll L\n\n[Slide 23]\nZoomed in reflectance dispersion, D = 0.1 V/nm, exc linear, coll L\nB = 0.4 T\nB = 3.8 T\n\n[Slide 24]\nB field dispersion analysis\nB = 0.4 T\nB = 8 T\n\n[Slide 25]\nB dispersion, track the minimum of the resonance\nB dispersion, track the minimum of the derivative resonance\nThe slope is similar between -1 and -2/3 state\n\n[Slide 26]\nDifferent Chern number lines\nC = -1\nC = -2/3\nC = -2/3\nC = -2/3\n\n[Slide 27]\nAnother check by fitting the derivative peak\nNot very good fit but the trend is consistent with tracking the minimum\nC = -2/3\nC = -2/3\n\n[Slide 28]\nElectron side does not have clear correlated states band is dispersive in the electron side at D = 0.1 V/nm.\n\n[Slide 29]\nZoom in figure\n\n[Slide 30]\nThis dispersion focus on the coll R instead of L.\nCarrier density\nFilling\n8T\n4T\n0.6T\n-1/3 (-1/4?) seem to have opposite slope after certain B field compared to -2/3, very interesting!\n\n[Slide 31]\nB = 0.1T, D = 0.1 V/nm\n0.1T is enough to fully polarize to -2/5 to -7/5\n\n[Slide 32]\n1.5K\n2K\n2.5K\n3K\n3.5K\n4K\n5K\n6K\n7K\n8K\n9K\n-2/3 state dies around 3.5K,\n-1 state dies around 9K\n\n[Slide 33]\n6K\n3.5K\n1.5K\n9K\nCan see not just the MCD goes away, the correlated insulating resonance as well as the high energy excitation themselves also goes away\n\n[Slide 34]\nIn order to study the full phase space of the FM, take dual gate map of reflectance and get the resonance minimum, B = 0.1 T\nL\nPeak amplitude\nPeak energy\nR\nR-L\nConsistent with RMCD measurements\n\n[Slide 35]\nL\nR\nDoping dep at certain D\nNew peak at zero D\n\n[Slide 36]\nL\nR\nD dep at certain doping\n\n[Slide 37]\nB = 0 T to see any difference, especially the fluctuation\nL\nPeak amplitude, very stable, nice looking shape\nR\nR-L\nThis is an isolated domain, also see in 5-2-2 RMCD measurement\nWhenever there is FM, the absorption is stronger (indirect to direct band transition?).\nThe main FM domain is from -1.4 to -0.72\nThere is isolated small domain from the large FM domain (close to -2/3, so critical temperature is lowered and -2/3 is enhanced like 3.5 K twisted bilayer MoTe2?)\nVery clear MCD map\nsimilar to spot 4 in B26 D2 sample\nbut not the same\n\n[Slide 38]\nL\nR\nDoping dep at certain D\n\n[Slide 39]\nL\nR\nD dep at certain doping\n\n[Slide 40]\nNow look at new spots\nSpot3, twisted bilayer, B = 0, D = 0.1 V/nm\n\n[Slide 41]\nNow look at the twisted 2+1 trilayer system, B =0T\nD = 0\nD = 0.1 V/nm\nD = -0.1 V/nm\nIf FM, this is the expected D offset for t2+1MoTe2\nPositive D pushing to twisted interface, clear kink features at -1/4, -1/3, -2/3, -1\nNegative D pushing to natural bilayer, only kink feature at -1 and discontinuity at -2/3. -1/4 and -1/3 are absent.\n\n[Slide 42]\nNow look at the twisted 2+1 trilayer system, B =0.1T\nD = 0\nD = 0.1 V/nm\nD = -0.1 V/nm\nZero D and near -1 filling has noticeable magnetism (weak FM or paramagnetism) as before, not the same spot as in 9-1-1\n\n[Slide 43]\nNow look at another spot in twisted 2+1 trilayer system, B =0.1T\nD = 0\n\n[Slide 44]\nNow look at another spot in twisted 2+1 trilayer system, B =0.1T\nD = 0\nD = 0.1  V/nm\nD = -0.1  V/nm\n\n[Slide 45]\nReturn to PL to check the fractional states\nContact\n2+1\n1+1\n1+2\n2+2\nPL and reflectance\nRMCD\ncontact\nBottom gate\n\n[Slide 46]\nSpot1, 1+2 PL emission area (instead of no PL emission area)\nThis spot is 1+2 with PL hole side center at D = 0, while the electron side boundary is at D = 0\ncontact\nD = 0\nTotal\nDCP\nPL doping dep, 50 nW,10s, linear exc, coll L/R, B = 0\nD = 0.1 V/nm\nD = -0.1 V/nm\nNo FM at B = 0\nThis should be the expected FM D offset\n\n[Slide 47]\nD = 0\nTotal\nDCP\nPL doping dep, 50 nW,10s, linear exc, coll L/R, B = 0.1 T, 50 nW\nD = 0.1 V/nm\nD = -0.1 V/nm\nThis should be the expected FM D offset\nSpot1, 1+2 PL emission area (instead of no PL emission area)\nIndeed D = 0.1 V/nm has strongest DCP at finite B\nB = 0.5 T, 100 nW\nD = 0\nD = 0.1 V/nm\nD = -0.1 V/nm\n\n[Slide 48]\nSpot 1, dual gate, exc linear, coll L/R, 100 nW, 5s, 0.5T\n\n[Slide 49]\nThis spot is 2+1 with PL hole side boundary at D = 0, and the electron side boundary is also at D = 0\nco…",
+  "sample": {
+    "geometry": "Twisted Monolayer/Bilayer (tML/BL) and Bilayer/Monolayer (tBL/ML) MoTe2",
+    "name": "B61",
+    "materials": [
+      "MoTe2"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "D_field_offset": "0.1 V/nm",
+      "temperature": "1.55K - 9K",
+      "doping": "n = -3.4e12 cm^-2",
+      "magnetic_field": "0T, 0.05T, 0.1T, 0.4T, 0.5T, 0.6T, 1T, 2T, 3T, 3.8T, 4T, 8T"
+    },
+    "technique": "Polarization-resolved reflectance spectroscopy, Reflectance Magnetic Circular Dichroism (RMCD), Photoluminescence (PL)"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Twisted Bilayers",
+    "Moiré Physics",
+    "Ferromagnetism",
+    "Fractional Quantum Anomalous Hall Effect"
+  ],
+  "authors": [
+    "Weijie Li"
+  ],
+  "keywords": [
+    "twisted monolayer-bilayer MoTe2",
+    "tML/BL MoTe2",
+    "tBL/ML MoTe2",
+    "reflectance",
+    "RMCD",
+    "photoluminescence",
+    "ferromagnetism",
+    "correlated states",
+    "fractional states",
+    "Chern number",
+    "moiré",
+    "dual gate",
+    "Attodry"
+  ]
 }

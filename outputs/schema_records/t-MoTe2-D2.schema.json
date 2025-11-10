@@ -1,31 +1,53 @@
 {
+  "$schema": null,
+  "title": "Fabrication and Initial Transport of a tMoTe2 Device",
+  "description": "Fabrication details and initial low-temperature electrical transport measurements of a twisted MoTe2 (tMoTe2) device (D2). The device features a complex multi-gated structure with top, bottom, and contact gates. Preliminary dual-gate transport measurements at 4K and 10mK under a small magnetic field (0.2T) show very high contact resistance. The presentation also documents the fabrication process and notes potential issues such as cracks in the flake and discrepancies in the expected gate dielectric thicknesses.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "BG",
-    "BN",
-    "CG",
-    "CG1",
-    "CG2",
-    "TG"
-  ],
-  "experiment_type": [
-    "photoluminescence",
-    "transport"
-  ],
-  "temperature_K_range": [
-    4.0,
-    4.0
-  ],
-  "magnetic_field_T_range": [
-    0.0,
-    2.0
-  ],
-  "summary": "photoluminescence transport",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/t-MoTe2-D2.pptx"
   },
   "provenance": {
     "slides": 8
-  }
+  },
+  "_nl_context": "[Slide 0]\ntMoTe2 transport Yifan D2\nTarget 12.15\nLoad 2024.12.20\n\n[Slide 1]\nPt backgate(Ti/Pt 2/7 nm)\nFabrication process\ntMoTe2\nTransfer hBN (2.5 nm)  + tMoTe2& AFM clean\nBefore\nAfter\nPt contact gate + Au pads(Ti/Pt 2/9 nm + Cr/Au 7/110 nm)& AFM clean\nAfter\nTransfer hBN(9nm)+Gr+hBN(4nm) Top gate stack\nGraphite\nBN\nAfter\nafter\nBefore\n\n[Slide 2]\nCracks that we did not notice before\n\n[Slide 3]\nMicroscope image + contact configuration\nBG\nTG\nCG 1\nTG\nBG\nCG1\nCG2\nCG2\n\n[Slide 4]\nGate Leakage Test\nTG = 8.5 nm\nBG = 15 nm\nCG = 3.7 nm\nBG= -5.45V 0.32 V/nm\nTG= -5.0V 0.77 V/nm\nCG1= -2.6 V 0.7V/nm\nCG2= -2.4 V0.65V/nm\nThe thickness of the BN might ne seriously wrong!\n\n[Slide 5]\nDual gate, 4K, 0T\nSome problem with plotting code. Will update tomorrow.\nVxx1\nVxx2\nVyx2\nVyx1\n\n[Slide 6]\nVxx1\nVxx2\nVyx2\nVyx1\nDual gate, 10mK, +0.2T, configuration 1\nContact resistance is huge.\nRxx1 ~195kohm\ncurrent~0.6nA, R2T~166kohm?\n\n[Slide 7]\nVxx1\nVyx2\nVyx1\nDual gate, 10mK, +0.2T, configuration 2 (smaller channel length)",
+  "sample": {
+    "geometry": "Multi-gated Hall bar",
+    "device_name": "D2",
+    "materials": [
+      "MoTe2",
+      "hBN",
+      "Graphite",
+      "Pt",
+      "Au"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "temperature": "10mK, 4K",
+      "magnetic_field": "0T, 0.2T"
+    },
+    "technique": "Electrical transport measurement (Rxx, Ryx)"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Device Fabrication",
+    "Electrical Transport",
+    "Twisted Bilayers"
+  ],
+  "authors": [
+    "Yifan"
+  ],
+  "keywords": [
+    "tMoTe2",
+    "twisted MoTe2",
+    "electrical transport",
+    "fabrication",
+    "dual gate",
+    "contact resistance",
+    "low temperature"
+  ]
 }

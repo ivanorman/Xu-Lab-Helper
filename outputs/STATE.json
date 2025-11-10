@@ -2,12 +2,14 @@
   "source_root": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples",
   "manifest_path": "/Users/isaacvanorman/AI-local/xu-lab-decks/outputs/manifest.jsonl",
   "manifest_fp": "0d9cb06474723ac031ffa1e8d2fe2a162ed9067d1e3ea53a09ec31e39181403c",
-  "last_run_iso": "2025-11-03T23:28:15Z",
+  "last_run_iso": "2025-11-10T22:29:38Z",
   "slides_dir": "/Users/isaacvanorman/AI-local/xu-lab-decks/outputs/jsonl",
   "slide_files": 16,
   "slides_fp": "0d9cb06474723ac031ffa1e8d2fe2a162ed9067d1e3ea53a09ec31e39181403c",
   "schema_dir": "/Users/isaacvanorman/AI-local/xu-lab-decks/outputs/schema_records",
   "schema_fp": "0d9cb06474723ac031ffa1e8d2fe2a162ed9067d1e3ea53a09ec31e39181403c",
   "schema_version": "deck-schema-v1",
-  "schema_files": 16
+  "schema_files": 16,
+  "schema_index_dir": "/Users/isaacvanorman/AI-local/xu-lab-decks/outputs/index_schema",
+  "schema_index_fp": "0d9cb06474723ac031ffa1e8d2fe2a162ed9067d1e3ea53a09ec31e39181403c"
 }

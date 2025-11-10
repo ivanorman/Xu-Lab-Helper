@@ -1,32 +1,62 @@
 {
+  "$schema": null,
+  "title": "Summary of Secondary Optical Peaks in Twisted MoTe2",
+  "description": "A summary and analysis of 'secondary peaks' observed in the optical spectra (PL and dR/R) of twisted MoTe2 devices (D10 and JCD13). The study investigates the behavior of these emergent excitonic features, which appear in addition to the main trion resonance, as a function of carrier density (n), displacement field (D), magnetic field, temperature, and laser power. Key findings include the emergence of a higher-energy exciton peak at integer filling v=1 at a critical D-field, energy splitting of ~3.5-4.5 meV from the trion, and strong dependencies on magnetic field, temperature, and power, providing insights into the correlated electronic states of the system.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "FM",
-    "MoTe2",
-    "NB",
-    "PL",
-    "RL"
-  ],
-  "experiment_type": [
-    "iv",
-    "photoluminescence",
-    "reflectance",
-    "rmcd"
-  ],
-  "temperature_K_range": [
-    1.6,
-    15.0
-  ],
-  "magnetic_field_T_range": [
-    0.0,
-    8.5
-  ],
-  "summary": "iv photoluminescence reflectance",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MoTe2 secondary peak summary.pptx"
   },
   "provenance": {
     "slides": 41
-  }
+  },
+  "_nl_context": "[Slide 0]\nMoTe2 secondary peak summary\nEric Anderson\n\n[Slide 1]\nPL D10 n sweep set D=.2\n5K 10s 5uW 150 grating 633nm exallcollall\n\n[Slide 2]\n\n[Slide 3]\nPL n sweep twisted region D=0\n5K 10s 1uW 600 grating 633nm exLinearcollall\n1.4 meV\n\n[Slide 4]\ndRR n sweep spot 2 D=0\nCan see stronger features at ½ electron and hole filling\n1.6K 600 grating 633nm exLinearcollall supercontinuum source\n\n[Slide 5]\ndRR n sweep spot 2 D=0\nMost obvious difference near v=-1, but also polarization dependence for electron filling\n1T 1.6K 30s 600 grating ocean optics exLinearcollRL\nR\nL\n\n[Slide 6]\ndRR n sweep spot 2 D=0.2\nStill polarization dependence, but trion behavior is quite different\nPolarization-dependent splitting between v=-1 and v=-2?\n1T 1.6K 30s 600 grating ocean optics exLinearcollRL\nR\nL\n\n[Slide 7]\ndRR vs n, D=0.04, 6T\nR\nL\nLarge field check. Basically, what I want to show here is that the lack of RMCD signal between the tails (ex, at n=-0.6E13, dashed line, and Deff=0) is from lack of FM order, rather than a lack of sensitivity to FM order because there are no states to sense the order.  Though it does seem like the dRR resonance beyond v=-1 (ex at n=-0.6E13) is much less sharp, it still does appear to have polarization dependence at sufficiently high field.  Basically, assuming that the RL difference in this measurement is due to the large field aligning the spins, it appears that we do have sensitivity to magnetic order in this region, as sensed by the polarization dependence of the reflectance, and that the lack of RMCD signal between the tails is from the lack of FM order, instead of the lack of sensitivity\n\n[Slide 8]\nPL n sweep select D\n1.6K 633nm 0T 5sec 200uW\nDifferent area than the RMCD spot (this is where the scan on slide 5 was taken), since all of the spectra at the RMCD spot had some amount of multiple peak behavior near v=-1, and didn’t have the same type of emergent exciton at v=1. This is taken on what seems to be the best spot, though there is still a bit of extra peak scatter at v=-1 in the D=0.04 scan\nD=0.2\nD=0.04\n\n[Slide 9]\nPL 2D map spot 1\nExcitons appear at v=1 (and weakly at v=-1) at the critical D field, makes sense based on the layer polarization understanding\n1.6K 633nm 0T 1sec 1uW\n\n[Slide 10]\nPL D sweep\n1.6K 633nm 0T 1sec 1uW\nCan see the appearance of excitons at v=1, seem to have a blueshift with increasing D? makes sense from the picture of more insulating triangular lattice\n\n[Slide 11]\nSplitting ~3.5meV at D=0.5\nPL D sweep linecuts\n1.6K 633nm 0T 1sec 1uW\n\n[Slide 12]\ntrion\nexciton\nPL dual gate map\n1.6K 633nm 0T 1sec 1uW\nAttempt to extract the near-trion peak. some leakage from the trion, but can see the separated feature\nDoes seem to be a bit stronger at finite D, but doesn’t disappear at D=0 like the higher energy peak does\n\n[Slide 13]\ndRR additional D sweeps\n1110nm 1.6K 600g R 0.1T\nFeature at v=-2(?) splitting with field – wondering why there is only a very small exciton range for PL but larger range in dRR, and if should count filling starting from the edge of the near-0 feature- this would give a more consistent spacing between V=0, v=-1, v=-2, etc, ie, -.11, -.43, -.75 as 0, -1, -2\nSeems to be a sharp transition with D on the electron side at D=.12 or so, which is smeared out a bit with filling under v=1? Ie, difference from hole side where there is an intermediate transition range before going to relatively constant behavior for large positive and negative D\n\n[Slide 14]\ndRR additional D sweeps\n1110nm 1.6K 600g R 0.1T\nLooks to be a closely spaced double peak that appears at finite positive D,  maybe this could have something to do with the second pl peak?\nSpacing at D=0.3 is approx. 4.5meV, similar to PL peak splitting from the trion. But it seems like the main resonance here is the higher energy one\n\n[Slide 15]\ndRR vs n D=0.3 linecuts\n1110nm 1.6K 600g R 0.1T\nDoes look like there’s a peak on the shoulder of the main peak\n\n[Slide 16]\ndRR vs n compare D=0.04 and D=0.3\n\n[Slide 17]\nR\nL\n0T\nR\nL\n8T\ndRR n sweep D=-0.02 JCD13\n1.6K ex Lin coll RL\nSimilar features here vs 0T, though obviously fully polarized in RL channel\nSimilar to D10 in high field, including the two features in R channel on hole side- don’t see the 2/3 filling in D10 though, whereas it’s visible in the current device\n\n[Slide 18]\ndRR n sweep D=-0.02\n1.6K 8T ex Lin coll RL\nSimilar features here vs 0T, though obviously fully polarized in RL channel\nSimilar to D10 in high field, including the two features in R channel on hole side- don’t see the 2/3 filling in D10 though, whereas it’s visible in the current device\nR\nL\nD10 compare 6T\n\n[Slide 19]\ndRR n sweep Fine electron side\n1.6K 8.5T ex Lin coll RL\nFine sweep, sweep down from large electon doping to avoid contact issues, take fine spaced spectra (1E-10 cm^-2) around v=1\nR\nL\n\n[Slide 20]\ndRR n sweep Fine electron side\n1.6K 6.5T ex Lin coll RL\nR\nL\n\n[Slide 21]\ndRR n sweep Fine electron side\n1.6K 4.5T ex Lin coll RL\nNo dispersion on electron side\nR\nL\n\n[Slide 22]\ndRR n sweep Fine electron side\n1.6K 2.5T ex Lin coll RL\nR\nL\n\n[Slide 23]\ndRR n sweep Fine electron side\n1.6K 0.5T ex Lin coll RL\nR\nL\n\n[Slide 24]\ndRR n sweep Fine electron side\n1.6K 0T ex Lin coll RL\nR\nL\nNo pol dep on electron side at 0T\n\n[Slide 25]\nTemp dep spot8\n633nm 3uW exlincollall\n1s\n1s\n1s\n15s\n15s\n5s\n\n[Slide 26]\nTemp dep spot8\n633nm 3uW exlincollall\nLog scale – it’s possible that the super weak feature at v=1 for 10K and 15K is the same higher peak, but this is D=0 data so that peak is usually very suppressed unless going to finite D\nNB, beam spot can tend to shift with temperature, so it’s also possible the higher temperature data is not on exactly the same spot\n\n[Slide 27]\nPower dep spot8\n633nm 1.6K exlincollall\nSeems like there is a significant power dependence for PL as well, check this\nFractional state weakens with power\n\n[Slide 28]\nPower dep spot8\n633nm 1.6K exlincollall\nLog scale\nLooks like higher energy peak at v=0 shows up with increased power, but can’t see anything at v=1\n\n[Slide 29]\nSweep n selected D\n633nm 6K 2uW 2sec exlincollall\nSmall peak slightly above the trion appears at positive D\nSecond higher peak at v=1 here, more prominent at finite D but can see it for all of the sweeps\nA lot of structure for v=2, v=3, and can see a second peak at v=-1, D=-0.1 as well\n\n[Slide 30]\nLinecuts v=1\n633nm 6K 2uW 2sec exlincollall\nV=1 peak looks to redshift with increasing D\ncan see the double peak at D=0.1, in conjunction with a much stronger suppression of the trion PL\n\n[Slide 31]\nLinecuts v=2\n633nm 6K 2uW 2sec exlincollall\nStronger on +D side, roughly 4.5meV blueshift from the trion\n\n[Slide 32]\nLinecuts v=3\n633nm 6K 2uW 2sec exlincollall\n\n[Slide 33]\nSweep n powerdep D=0.1\n633nm 6K  exlincollall\nDoesn’t appear to be a power dependence in this range\n\n[Slide 34]\nSweep n powerdep D=0.1\n633nm 6K  exlincollall\nDoesn’t appear to be a power dependence in this range\n\n[Slide 35]\nSweep n powerdep D=-0.1, 0\n633nm 6K  exlincollall\nDon’t see a clear power dependence for other values of D either\n\n[Slide 36]\nDual gate map PL\n633nm 6K 10uW 1sec  exlincollall\nCan’t really resolve the closer peak at v=1\nAlso looks like the higher peaks appear at finite D, as in the larger twist angle samples\n\n[Slide 37]\nDual gate map PL 0.5T\n633nm 1.6K 250nW 1sec  exlincollall\nTry comparing attodry dual gate maps with scanning pl\nDon’t really see any peaks at v=+-1, but might be the small range\n\n[Slide 38]\nDual gate map PL 8T\n633nm 1.6K 250nW 1sec  exlincollall\nSlightly bigger range on the 8T map, maybe a peak at positive D  and v=-1?\n\n[Slide 39]\nDual gate map PL 8T\n633nm 1.6K 250nW 1sec  exlincollall\nMight be the v=1 peak at positive D here, but hard to say\nThese maps aren’t really ideal for looking for the peak, since they were taken with low power to look at the magnetic region on the hole side, so S/N is low, might not be able to see the weak electron side v=1 peak. But, it does seem like the peaks are much easier to see at higher temperature\n\n[Slide 40]\nD10\nJCD13",
+  "sample": {
+    "device_name": [
+      "D10",
+      "JCD13"
+    ],
+    "materials": [
+      "MoTe2"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "temperature": "1.6K, 5K, 6K, 10K, 15K",
+      "displacement_field": "-0.1 to 0.5",
+      "power": "1uW - 200uW",
+      "excitation_wavelength": "633nm, 1110nm",
+      "magnetic_field": "0T, 0.1T, 0.5T, 1T, 2.5T, 4.5T, 6T, 6.5T, 8T, 8.5T"
+    },
+    "technique": "Photoluminescence (PL) Spectroscopy, Differential Reflectance (dR/R) Spectroscopy"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Moiré Physics",
+    "Correlated Electron Systems",
+    "Exciton Physics",
+    "Photoluminescence"
+  ],
+  "authors": [
+    "Eric Anderson"
+  ],
+  "keywords": [
+    "MoTe2",
+    "twisted bilayer",
+    "secondary peaks",
+    "photoluminescence",
+    "PL",
+    "differential reflectance",
+    "dR/R",
+    "correlated states",
+    "excitons",
+    "trions",
+    "moiré",
+    "dual gate",
+    "magnetic field",
+    "filling factor"
+  ]
 }

@@ -1,3 +1,6 @@
 mcp>=0.1.2
 tqdm>=4.66
 python-pptx>=0.6.23
+pytesseract
+Pillow
+whoosh

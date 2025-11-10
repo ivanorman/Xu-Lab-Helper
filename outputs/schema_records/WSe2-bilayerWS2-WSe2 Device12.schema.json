@@ -1,13 +1,45 @@
 {
+  "$schema": null,
+  "title": "Microscopy of WSe2-bilayerWS2-WSe2 Heterostructure",
+  "description": "Microscopy images of a WSe2-bilayerWS2-WSe2 heterostructure (Device 12), showing regions with different moiré periodicities (5.3nm and 25nm).",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "WSe2"
-  ],
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/WSe2-bilayerWS2-WSe2 Device12.pptx"
   },
   "provenance": {
     "slides": 3
-  }
+  },
+  "_nl_context": "[Slide 0]\nWSe2-bilayerWS2-WSe2 Device12\nXi\n\n[Slide 1]\n5.3nm moire\n25nm moire\nZoom in\nmbilayerWS2-bWSe2\ntWSe2-mbilayerWS2-bWSe2\n\n[Slide 2]\ntWSe2-mbilayerWS2-bWSe2",
+  "sample": {
+    "geometry": "Heterostructure",
+    "materials": [
+      "WSe2",
+      "WS2"
+    ],
+    "device_name": "Device 12",
+    "layers": [
+      "WSe2",
+      "bilayer WS2",
+      "WSe2"
+    ]
+  },
+  "measurement": {},
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Heterostructures",
+    "Moiré Physics"
+  ],
+  "authors": [
+    "Xi"
+  ],
+  "keywords": [
+    "WSe2",
+    "bilayer WS2",
+    "heterostructure",
+    "moiré pattern"
+  ]
 }

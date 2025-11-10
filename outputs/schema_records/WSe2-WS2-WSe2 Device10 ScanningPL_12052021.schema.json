@@ -1,29 +1,61 @@
 {
+  "$schema": null,
+  "title": "Scanning PL on WSe2-WS2-WSe2 Device 10",
+  "description": "Scanning photoluminescence (PL) and differential reflectance (dR/R) study of a WSe2-WS2-WSe2 heterostructure (Device 10) at 6K. The experiment investigates the gate-dependent optical properties of both bilayer and trilayer regions, focusing on interlayer excitons (IX). Moiré wavelength is estimated from the data, and the IX energy is analyzed.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2052-02",
-  "materials": [
-    "AO1",
-    "AO3",
-    "BG",
-    "BN",
-    "IX",
-    "PL",
-    "TG",
-    "WS2",
-    "WSe2"
-  ],
-  "experiment_type": [
-    "photoluminescence"
-  ],
-  "temperature_K_range": [
-    6.0,
-    6.0
-  ],
-  "summary": "photoluminescence",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/WSe2-WS2-WSe2 Device10 ScanningPL_12052021.pptx"
   },
   "provenance": {
     "slides": 9
-  }
+  },
+  "_nl_context": "[Slide 0]\nWSe2-WS2-WSe2 Device10\n12052021\nScanning PL\n\n[Slide 1]\nBG\nTG\nWS2-bWSe2\ntSe-S-bS2\ntWSe2-WS2\nMono tWSe2\nBG\nBottom BN thickness 24 nm (measured by Icon)\nTop BN thickness 28 nm (measured by Edge on the third floor)\n\n[Slide 2]\nNo. 8, Top Gate, AO1\nNo. 5, Top Gate, AO3\n\n[Slide 3]\n01 center635nm1s whitelight_P1_Vt=Vb=-7to7V_0p05Vstep\n6K\n-4.8\n-2.5\n0.7\n3.9\n5.4\nΔ=1.5E12 cm-2\nΔ=3.2E12 cm-2\nΔ=3.2E12 cm-2\nΔ=2.3E12 cm-2\n6.5nm moire, 1.5-2 degree, corresponding to 3E12 cm-2\n7.5, 1 degree, corresponding to 2.05E12 cm-2\n8.3nm, 0 degree, corresponding to 1.67E12 cm-2\nNo features below 1.95 eV, seems to be zero degree\nThe density and filling factor will be double checked by PL tonight.\nThen warm up, check another sample\nVg (V)\nVg (V)\nDensity (1012 cm-2)\ndR/R\nSmoothed dR/R\nd(dR/R)/dE\nRef\n\n[Slide 4]\n02 cente715nm1s whitelight_P1_Vt=Vb=-7to7V_0p02Vstep_6K\nVg (V)\nVg (V)\nDensity (1012 cm-2)\ndR/R\nSmoothed dR/R\nd(dR/R)/dE\nTune color bar\n0.23\n-2.337\n-4.6\n2.851\nBack calculation  R=7.1nm\n\n[Slide 5]\n04_PL_737nm100nW_cente895nm1s P1_Vt=Vb=-5to5V_0p01Vstep_6K\nVg (V)\nLog scale\nFrom density calculation, the moire wavelength is between 7.2nm-7.5nm.\nThe IX energy is slightly lower than what we measured before, not sure if it’s the temperature of sample is not cool enough, or something else\nPeak of PL is clean, tried to check the shape of a few random places, look uniform.\n\n[Slide 6]\n07_P2_PL_737nm100nW_cente895nm1s_Vt=Vb=-7to7V_0p02Vstep_6K\nLog scale\n\n[Slide 7]\n05_1-2002_trilayer_PL_737nm100nW_cente935nm1s _Vt=Vb=-5to5V_0p01Vstep_6K\n2\n-4\nDouble on the hole side\nMuch lower IX energy (broad peaks seem to be convoluted from many peaks)\nDoping dependence showed reduced intensity around 2*E12 cm-2 on the electron side, but 4*E12 cm-2 on the hole side\n\n[Slide 8]\n06_2003-4004_Efield_trilayer_PL_737nm100nW_cente935nm1s _Vt=-Vb=-5to5V_0p01Vstep_6K\nIntensity change significantly might be due to the slight difference between top and bottom gate\nLog scale",
+  "sample": {
+    "geometry": "Heterostructure with bilayer and trilayer regions",
+    "layers": [
+      "WSe2",
+      "WS2",
+      "WSe2"
+    ],
+    "device_name": "Device 10",
+    "materials": [
+      "WSe2",
+      "WS2",
+      "hBN"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "laser_power": "100nW",
+      "temperature": "6K",
+      "center_wavelength": "635nm, 715nm, 895nm, 935nm",
+      "excitation_wavelength": "737nm"
+    },
+    "technique": "Scanning Photoluminescence (PL) Spectroscopy, Differential Reflectance (dR/R) Spectroscopy"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Heterostructures",
+    "Photoluminescence",
+    "Interlayer Excitons",
+    "Moiré Physics"
+  ],
+  "authors": [],
+  "keywords": [
+    "WSe2-WS2-WSe2",
+    "heterostructure",
+    "scanning PL",
+    "photoluminescence",
+    "differential reflectance",
+    "interlayer exciton",
+    "IX",
+    "moiré",
+    "gate tuning",
+    "bilayer",
+    "trilayer"
+  ]
 }

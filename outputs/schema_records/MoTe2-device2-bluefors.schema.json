@@ -1,31 +1,60 @@
 {
+  "$schema": null,
+  "title": "Superconducting Diode Effect in a 2L-MoTe2 Device",
+  "description": "Extensive electrical transport study of a dual-gated 2-layer MoTe2 device (#2) at cryogenic temperatures in a Bluefors dilution refrigerator. The measurements focus on characterizing the superconducting state and investigating the superconducting diode effect. The experiment involves detailed sweeps of temperature (down to 50mK), magnetic field (in-plane Hx, Hy and out-of-plane Hz), back gate voltage (Vbg), and DC bias current (Idc). Key measurements include resistance vs. temperature and field, differential resistance (dI/dV or dV/dI) vs. DC bias, and field-dependent critical currents, revealing asymmetric transport and Josephson junction-like interference patterns.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "BN",
-    "IV",
-    "JJs",
-    "MoTe2",
-    "SC"
-  ],
-  "experiment_type": [
-    "iv",
-    "photoluminescence",
-    "transport"
-  ],
-  "temperature_K_range": [
-    0.05,
-    1.5
-  ],
-  "magnetic_field_T_range": [
-    -5.5,
-    2023.0
-  ],
-  "summary": "iv photoluminescence transport",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MoTe2-device2-bluefors.pptx"
   },
   "provenance": {
     "slides": 58
-  }
+  },
+  "_nl_context": "[Slide 0]\nMoTe2-device #2\nMeasurement date 01/24/2023\nBluefors\n\n[Slide 1]\nContent\n0. Device basics\nMeasurements:\nR vs T, initial cool down + Test of gates\nR vs Field at Vbg steps (need to redo)\nQuick dI/dV vs Idc\nIn-plane magnetic field measurement\nCheck of Vbg sweep at 0T, 0Vbias, 50mK\ndI/dV vs Idc sweep at step Hx, -1T to 0T\ndI/dV vs Idc sweep at step Hy , -1T to 1T\nR vs Field at Vbg steps (Redo #2)\ndV/dI vs Vbias at step\ndV/dI vs Hz at step Vbias @ 5.5Vbg\ndV/dI vs Idc, at step T\nField calibration with Hx/Hy to get true Hz=0\ndV/dI vs Hz at step Vbias @ -5.5Vbg\ndV/dI vs bias at step calibrated Hy\nQuick re-check of H calibration\nRe-check of diode effect with Hz<0.02T\nRe-check of diode effect with Hz<0.02T at Hy=+- 1T\nDiode effect with Pulse Field\nDiode effect with Pulse Current\nDiode effect with at 150mK\n\n[Slide 2]\nFlake info 2L\nIsolated by needle,\nThen PCL cleaned the surroundings\n\n[Slide 3]\nDual gate device\n2L MoTe2\nDetermined by the color contrast\npicked up by BN\n4 point measurement:\nIdc 13-9Rxx1 5-3, ~ 15kOhm\nRxx2 5-4, ~ 12kOhm\n\n[Slide 4]\nRxx1\n1. RvsT initial cool down\nRxx2\n\n[Slide 5]\n2. R vs Field at Vbg steps\nMeasurement details:\nSweeping from +- 1.25 T,\nVbg -5.5 Vbg to 7.5 Vbg, step 0.5\nReverse field sweep direction between steps\nCurrent gain 10^8, voltage gain 10^3, current 1nA\n\n[Slide 6]\n2. R vs Field at Vbg steps (field down data only)\nRxx1\nRxx2\nTemperature\nMostly constant except jumps after crossing 0 field\nCritical field Hc ~ 0.5T.\nAnomaly: SC is weaker near Vbg=3V.\n\n[Slide 7]\n2. R vs Field at Vbg steps (field down data only)\nRxx1\nRxx2\nTemperature is mostly constant except jumps after crossing 0 field\nSmaller step feature below 0.1T\nAlso get suppressed near -3Vbg.\nSweeping direction\n\n[Slide 8]\n3. Quick dI/dV vs Vbias scans\nMeasurement details: 0 T, 50mK\nIdc=Vbias/100MOhm, -50nA to 50nA\nCorresponds to the lower SC state\nCorresponds to the upper SC state\nAsymmetric critical Idc by 10%.\nNeed to apply an in-plane field perpendicular to the current to see a stronger effect.\n\n[Slide 9]\n4. In-plane magnetic field measurement\nRxx2\nTemperature\nHy\nHx\nRough estimation of coordinates\ncurrent\nMeasurement details: 0 T, 50mK, 2Vbias\nMore asymmetric along Hx?\n\n[Slide 10]\n5. Check of Vbg sweep at 0T, 0Vbias, 50mK\n\n[Slide 11]\nData taken at\nVbg=-5.5\nT=50mK\nHy=Hz=0\nI ac=1nA\nVbias: from -5V to 5V corresponding to -50nA to 50nA\nHx: -1T to 0 at stepsize 0.05\n5. dI/dV vs Vbias at step Hx\n\n[Slide 12]\ndV/dI\nHysteresis\nForward-Backward\nAsymmetry\ndV/dI (I) - dV/dI (-I)\n0T\n-1 T\nForward\nBackward\n0T\n-1 T\nForward & Backward\n\n[Slide 13]\nIV curve: integrated dV/dI\nHysterisis = Forward-Backward\nAsymmetry = V(I)+V(-I)\nForward\nBackward\n0V\n-1 V\n0V\n-1 V\nJiaqi: looks like there is interference pattern, may be necessary to calibate H\nForward & Backward\n\n[Slide 14]\n6. dI/dV vs Vbias at step Hy\nData taken\nVbg=-5.5\nT=50mK\nHx=Hz=0\nI ac=1nA\nVbias: from -5V to 5V corresponding to -50nA to 50nA\nHy: -1T to 1 at stepsize 0.05\n\n[Slide 15]\ndV/dI\nHysteresis\nForward-Backward\nAsymmetry\ndV/dI (I) - dV/dI (-I)\n1T\n-1 T\n1T\n-1 T\n\n[Slide 16]\nIV curve: integrated dV/dI\nHysterisis = Forward-Backward\nAsymmetry = V(I)+V(-I)\nForward\nBackward\n1T\n-1 T\n1T\n-1 T\n\n[Slide 17]\nAsymmetry = V(I)+V(-I) at higher Idc\nAsymetry is present at 0T. Where is the TRS breaking?\nWith Hx (I // H): strong but odd field dependence of Idc value, and relative asymmetric Idc difference (represented by peak width)\nWith Hy (I // H): Idc value, and asymmetric Idc difference is weakly Hy dependent. Critical field along Hy is probably high near 5T.\nMore robust diode effect seen at Hy > 0.6T. The polarity can can be switched with field direction.\nHy<0.6T, the sign of asymmetry fluctuates.\n\n[Slide 18]\nCompare with literature\nThe boxed region is equivalent to the our data taken from -1 to 1 T.\nNear 0 field, the polarity is undefined marked by red.\n When Hy is small, the polarity of the diode effect is unstable.\nObservation of superconducting diode effect | Nature\nSwitching the x/y axis\n\n[Slide 19]\nAsymmetry = V(I)+V(-I) small feature below 20nA\nThe asymmetry from the smaller feature  is hard to be discerned.\n\n[Slide 20]\nData at Hy = +-0.9T\nThe difference between asymmetric Ic is relatively constant at +- Hy.\n0.9T\n-0.9 T\n0.9T\n-0.9 T\n\n[Slide 21]\n7. R vs Field at Vbg steps\nMeasurement details:\nSweeping from +- 1 T,\nVbg -5.5 Vbg to 7.5 Vbg, step 0.5\nField up and down\nCurrent gain 10^8, voltage gain 10^3, current 1nA\nAn 100MOhm impedance is added to the gating voltage source\n\n[Slide 22]\n7. R vs Field Hz at Vbg steps\n(field up data)\nVbg=-5.5\nVbg=7.5\nTemperature\nRxx\nHigher Vbg suppresses the small feature below 0.3T\nLower Vbg suppresses the main feature near 0.5T.\nVbg=-5.5\nVbg=7.5\n\n[Slide 23]\n7. R vs Field Hz at Vbg steps\n(field down data)\nTemperature\nRxx\nVbg=-5.5\nVbg=7.5\nHigher Vbg suppresses the small feature below 0.3T\nLower Vbg suppresses the main feature near 0.5T.\nVbg=7.5\nVbg=-5.5\n\n[Slide 24]\nDouble checking feature near 7T.\n\n[Slide 25]\n8. dV/dI vs bias at step gate voltage\nMeasurement details:\nSweeping from +- 5 Vbias,\nVbg -5.5 Vbg to 7.5 Vbg, step 1\nUp and down sweep\nHy=0.9T, Hz=Hx=0\nCurrent gain 10^8, voltage gain 10^3, current 1nA\nAn 100MOhm impedance is added to the gating voltage source\n\n[Slide 26]\n8. dV/dI vs bias at step gate voltage\nVbg=-5.5\nVbg=7.5\nRaw data (forward sweep)\nRaw data\nForward & backward\ndV/dI (I) - dV/dI (-I)\nVbg=-5.5\nVbg=7.5\n\n[Slide 27]\n8. dV/dI vs bias at step gate voltage\nVbg=-5.5\nVbg=7.5\nIntegrated\nI-V data\nAsymmetry = V(I)+V(-I)\nVbg=-5.5\nVbg=7.5\nTake home message:\nVbg= - 5.5 shows strongest diode effect\n\n[Slide 28]\n8. dV/dI vs bias at step gate voltage\nAsymmetry = V(I)+V(-I)\nVbg=-5.5\nVbg=7.5\nTake home message:\nVbg= - 5.5 shows strongest diode effect\nCoupled ferroelectricity and superconductivity in bilayer Td-MoTe2 | Nature\n\n[Slide 29]\n9. dV/dI vs bias at small Hz steps\nMeasurement details:\nSweeping from +- 5 Vbias,\nHz from -0.125 to 0 with step of 0.001\nVbg = -5.5 Vbg\nHx=Hy=0T, Current gain 10^8, voltage gain 10^3, current 1nA\nAn 100MOhm impedance is added to the gating voltage source\n\n[Slide 30]\n9. dV/dI vs bias at small Hz steps\nInterference pattern from Josephson Junction effect\n\n[Slide 31]\n10. dV/dI vs Hz, at step Vbias\nMeasurement details:\nSweeping from +- 0.2 T\nVbias from 1.6 to -1.6V, step of 0.02\nVbg = 5.5 Vbg (mitake: should be -5.5 …)\nHx=Hy=0T, Current gain 10^8, voltage gain 10^3, current 1nA\nAn 100MOhm impedance is added to the gating voltage source\n\n[Slide 32]\n10. dV/dI vs Hz, at step Vbias\nSweeping\ndirection\nSweeping\ndirection\n\n[Slide 33]\n10. dV/dI vs Hz, at step Vbias (in smaller ranges)\nSweeping\n- to +\nMeasurement details:\nHz Sweeping from +- 0.05 T\nVbias from 2.5 to -2.5V, step of 0.02\nVbg = 5.5 Vbg (mitake: should be -5.5 )\n\n[Slide 34]\n10. dV/dI vs Hz, at step Vbias (in smaller ranges)\nSweeping\n+ to -\n\n[Slide 35]\n10. dV/dI vs Hz, at step Vbias (plot against Vdc)\nIV curve\nIdc Vdc\n\n[Slide 36]\n11. dV/dI vs Idc, at step T\nT=0.05K\nT=0.8K\nIncreased hysteresis with higher T\nStrongest diode effect near 150mK\nMeasurement details:\nSweeping from +- 0.2 T\nVbias from 5 to -5V, step of 0.01\nVbg = -5.5 Vbg\nHx=Hy=0T, Current gain 10^8, voltage gain 10^3, current 1nA\nAn 100MOhm impedance is added to the gating voltage source\n\n[Slide 37]\n12. Field calibration\nHx= -0.9:0.2:0.9\nHy= -0.9:0.2:0.9\nLinear model Poly11:\nf(x,y) = p00 + p10*x + p01*y\nCoefficients (with 95% confidence bounds):\np00 =    -0.00312  (-0.003551, -0.002689)\np10 =     0.02838  (0.02762, 0.02915)\np01 =     -0.0209  (-0.02167, -0.02013)\nQuadratic fitting to find the minimum\n Hz_shift (Hx,Hy)\n\n[Slide 38]\n13. Further mapping with dV/dI vs Hz. Step Vbias\nV=-5.5Vbg\nFirst mapping:\n+- 36nA, step 0.3nA\n0T to 0.7T\nSweep rate: 0.05T\nV=-5.5Vbg\nV=5.5Vbg\n\n[Slide 39]\n13. Further mapping with dV/dI vs Hz. Step Vbias\n\n[Slide 40]\n13. Further mapping with dV/dI vs Hz. Step Vbias\nCombining three plots\n\n[Slide 41]\n14. dV/dI vs bias at step calibrated Hy\nMeasurement details:\nSweeping from +-1T Hy, with correction in Hz so Hz=0\nVbias from 5 to -5V, step of 0.0…",
+  "sample": {
+    "geometry": "Dual-gated Hall bar",
+    "layers": [
+      "2L MoTe2"
+    ],
+    "device_name": "Device #2",
+    "materials": [
+      "MoTe2",
+      "hBN"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "magnetic_field_in-plane": "-1T to 1T",
+      "gate_voltage_bottom": "-5.5V to 7.5V",
+      "temperature": "50mK - 0.8K",
+      "magnetic_field_out-of-plane": "-1.25T to 1.25T",
+      "bias_current": "-50nA to 50nA"
+    },
+    "technique": "Four-point electrical transport measurement, Differential resistance (dI/dV) spectroscopy"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Superconductivity",
+    "Topological Materials",
+    "Superconducting Diode Effect",
+    "Electrical Transport"
+  ],
+  "authors": [],
+  "keywords": [
+    "MoTe2",
+    "bilayer",
+    "superconductivity",
+    "superconducting diode effect",
+    "electrical transport",
+    "Bluefors",
+    "low temperature",
+    "dual gate",
+    "critical field",
+    "critical current",
+    "Josephson junction",
+    "hysteresis"
+  ]
 }

@@ -1,23 +1,53 @@
 {
+  "$schema": null,
+  "title": "Scanning PL on MoTe2 1+2 Heterostructure A2",
+  "description": "Scanning photoluminescence (PL) study of a MoTe2 1+2 (monolayer/bilayer) heterostructure, sample A2. The experiment explores the gate-dependent PL response using a dual-gate configuration, revealing sharp transitions and hysteresis in the PL intensity. The data is analyzed as a function of carrier density (n) and displacement field (D), with features suggestive of correlated states at integer fillings.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "BN",
-    "MoTe2",
-    "PL"
-  ],
-  "experiment_type": [
-    "photoluminescence"
-  ],
-  "magnetic_field_T_range": [
-    -1.0,
-    -1.0
-  ],
-  "summary": "photoluminescence",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/Zengde_MoTe2_A2_scanningpl.pptx"
   },
   "provenance": {
     "slides": 16
-  }
+  },
+  "_nl_context": "[Slide 0]\nA2 MoTe2 1+2 Scanning PLdesigned 4° but stacking relaxed?\nZengde\n2025.10.20\n(still measuring and updating)\n\n[Slide 1]\n\n[Slide 2]\ntg -6~7V\nbg -4~4V\nBottom bn 20.6nm\ntop bn ~24nm\nHas lower limit because there are some leakage through attached thin BN\nGate Test\n\n[Slide 3]\nPL spatial map, doping Vbg=-1V\nMonolayer PL\nBi&tri PL\n\n[Slide 4]\nApparently at this certain doping, bilayer is bright while 1+2 has no PL\n\n[Slide 5]\nDualgate PL Spot 1, 5s, 2uW\n(test spot)\nVtg\nVtg\n17.647, 14.71\nSudden transition\nThing to understand: ①the value of the dark gap ② Hysteresis\n\n[Slide 6]\nThis feature is the same with Weijie’s B48 sample\n\n[Slide 7]\nD=0.2\nn=-1\nD=0.2\nn=-1\nTwo sweep direction has no apparent difference\nDualgate PL Spot 1, 5s, 2uW\n(test spot)\n17.647, 14.71\n\n[Slide 8]\nD=0.2\nn=0\nD=-0.1\nn=-2\n\n[Slide 9]\nD=-0.3\nD=0.3\n\n[Slide 10]\nVtg\nVtg\n16.872 13.434\n5s\n2s\nFine Dualgate PL Spot 2, 2uW\nSome similar feature with spot 1 but yet no sharp transition and no “hysteresis”\n\n[Slide 11]\n16.872 13.434\nDualgate PL Spot 2, 2uW\nD=0.2\nn=-1\nSame with spot 1\n\n[Slide 12]\n14.635 11.904\nDualgate PL Spot 3, 1s, 2uW\nD=0.4\nSome correlated state feature here, maybe interger filling\n\n[Slide 13]\n14.635 11.904\nDualgate PL Spot 3, 1s, 2uW\nMore specified peak energy\nD=0.2\nD=0.3\nD=0.1\nn=-1\n\n[Slide 14]\nDualgate PL Spot 4, 1s, 2uW\n12.485 9.098\nD=-0.15\nn=-1\nSeems to be just artifacts\n\n[Slide 15]\nDualgate PL Spot 4, 1s, 2uW\nFine gate dependence scan, didn’t see anything interesting\n12.485 9.098\nD=-0.15\nn=-1",
+  "sample": {
+    "design_twist_angle": "4°",
+    "name": "A2",
+    "materials": [
+      "MoTe2",
+      "hBN"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "laser_power": "2uW",
+      "integration_time": "1s, 2s, 5s"
+    },
+    "technique": "Scanning Photoluminescence (PL) Spectroscopy"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Heterostructures",
+    "Photoluminescence",
+    "Correlated Electron Physics",
+    "Moiré Physics"
+  ],
+  "authors": [
+    "Zengde"
+  ],
+  "keywords": [
+    "MoTe2",
+    "1+2 heterostructure",
+    "monolayer/bilayer",
+    "scanning PL",
+    "photoluminescence",
+    "dual gate",
+    "correlated states",
+    "hysteresis",
+    "doping dependence"
+  ]
 }
