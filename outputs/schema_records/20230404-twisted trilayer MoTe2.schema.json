@@ -1,34 +1,53 @@
 {
+  "$schema": null,
+  "title": "Twisted AAA Trilayer MoTe2 Photoluminescence Spectroscopy",
+  "description": "Characterization of a twisted AAA trilayer MoTe2 sample using scanning photoluminescence (PL) spectroscopy at 5.8K. The study includes gate-dependent measurements, analysis of K-valley excitons and trions, and investigation of hysteresis effects possibly related to ferroelectricity. Different spots on the sample are probed to assess uniformity and local properties.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2023-04-04",
-  "materials": [
-    "BG",
-    "BN",
-    "FE",
-    "IX",
-    "MX",
-    "MoTe2",
-    "OM",
-    "PL",
-    "TG",
-    "XM"
-  ],
-  "experiment_type": [
-    "photoluminescence"
-  ],
-  "temperature_K_range": [
-    5.8,
-    5.8
-  ],
-  "magnetic_field_T_range": [
-    2.0,
-    12.0
-  ],
-  "summary": "photoluminescence",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/20230404-twisted trilayer MoTe2.pptx"
   },
   "provenance": {
     "slides": 27
-  }
+  },
+  "_nl_context": "[Slide 0]\n20230404 twisted AAA trilayer MoTe2\nT = 5.8K\nPinhole = 50um\nSlit = 120um\nScanning PL\n\n[Slide 1]\nOM images\n10\n11\n12\nTG: 12\nBG: 11\nGND: 10\nTop BN = bottom BN = 35nm\n\n[Slide 2]\nGate test\nTG: 12\nBG: 11\nGND: 10\nTop BN = bottom BN = 35nm\nVtg = [-8.5, 7.0] V\nVbg = [-6.8, 7.3] V\n\n[Slide 3]\nspot3\n15uW 10sec\n1.04eV – 1.10eV\nK-K\nTrion+\n\n[Slide 4]\nspot3\n15uW 10sec\n1.01eV – 1.07eV\nIndirect transitions (?)\nat lower energy\n\n[Slide 5]\ncalculated layer separations\n= 1L\n= 1L\n= 2L\n= 2L\nE\nE\n\n[Slide 6]\nCheck hysteresis\n(for possible FE)\n\n[Slide 7]\nWhat to expect from FE/hysteresis (optically)\nE = 0\nMX↓\nXM↑\nE > 0\nE = 0\nE < 0\nE = 0\nDomain wall dynamics: Balance among intralayer elastic & interlayer vdW & electrostatic interactions\nΣP > 0\nΣP < 0\nΣP = 0\nnet polarization:\nΣP\nE\nhysteresis → domain area change → intensity change for IX\n\n[Slide 8]\nGate map – part i\n15uW 10sec spot3\n1.04eV – 1.10eV\ncolorbar scale\nnot fixed\nfixed\nlog\n\n[Slide 9]\nGate map – part ii\n15uW 10sec spot3\n1.01eV – 1.07eV\ncolorbar scale\nnot fixed\nfixed\nlog\n\n[Slide 10]\ncolorbar scale\nnot fixed\nfixed\nlog\nZoom in and focus on K valley and its trions\n\n[Slide 11]\nref\n1\n2\n3\n4\nTry different spots\nspot1\nJust realized spot1 has no topgate\ntrilayer signal is weaker\nspot3\nspot3\nd(dR/R)/de\nspot4\nspot4\nd(dR/R)/de\nspot2\nspot2\nd(dR/R)/de\n5\n6\n7\n\n[Slide 12]\nspot3\nspot3\nd(dR/R)/de\nspot2\nspot2\nd(dR/R)/de\nspot4\nspot4\nd(dR/R)/de\nref\n1\n2\n3\n4\nTry different spots-E field dependence\n\n[Slide 13]\nspot 3\n60sec\nref\n3\nNo correlated states\n\n[Slide 14]\n\n[Slide 15]\nGate map\nd(dR/R)/de\n\n[Slide 16]\nGate map\nApplied low pass filter\nd(dR/R)/de\n\n[Slide 17]\n\n[Slide 18]\n\n[Slide 19]\n\n[Slide 20]\n\n[Slide 21]\n\n[Slide 22]\n\n[Slide 23]\n\n[Slide 24]\n\n[Slide 25]\nspot 3\n30sec\nref\n3\n\n[Slide 26]\nspot5\n15uW 10sec\nSeems not covered by top gate",
+  "sample": {
+    "geometry": "twisted AAA stacking",
+    "materials": [
+      "trilayer MoTe2"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "pinhole": "50um",
+      "laser_power": "15uW",
+      "temperature": "5.8K",
+      "slit": "120um",
+      "integration_time": "10sec"
+    },
+    "technique": "Scanning Photoluminescence (PL) Spectroscopy"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Twisted Trilayer MoTe2",
+    "Photoluminescence Spectroscopy",
+    "Moiré Excitons",
+    "Ferroelectricity"
+  ],
+  "authors": [],
+  "keywords": [
+    "twisted trilayer MoTe2",
+    "scanning PL",
+    "photoluminescence",
+    "gate dependence",
+    "hysteresis",
+    "K-valley",
+    "trions",
+    "excitons",
+    "moiré pattern",
+    "ferroelectric"
+  ]
 }

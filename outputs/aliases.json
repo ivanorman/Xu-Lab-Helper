@@ -53,5 +53,12 @@
   "magnetoresistance": [
     "MR",
     "magnetoresistance"
+  ],
+  "quantum_hall_effect": [
+    "IQHE",
+    "Landau fan",
+    "Landau levels",
+    "integer quantum hall",
+    "quantum oscillation"
   ]
 }

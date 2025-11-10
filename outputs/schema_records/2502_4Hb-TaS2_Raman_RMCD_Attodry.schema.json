@@ -1,31 +1,61 @@
 {
+  "$schema": null,
+  "title": "Raman and RMCD Study of 4Hb-TaS2",
+  "description": "Polarization-resolved Raman and RMCD measurements on 4Hb-TaS2 samples of varying thicknesses (4L, 6L, 11L, bulk) in an Attodry cryostat. The study investigates the behavior of Charge Density Wave (CDW) amplitude modes and the Higgs mode as a function of laser power, temperature, and magnetic field. Circular polarization-resolved Raman spectroscopy is also performed to probe the material's chiral properties. The data is analyzed for spectral weight transfer and compared with previous results on NbSe2.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-01",
-  "materials": [
-    "AS",
-    "LP1",
-    "LP2",
-    "NbSe2",
-    "TaS2",
-    "UP"
-  ],
-  "experiment_type": [
-    "photoluminescence",
-    "raman"
-  ],
-  "temperature_K_range": [
-    0.08,
-    16.5
-  ],
-  "magnetic_field_T_range": [
-    -4.04,
-    8.0
-  ],
-  "summary": "photoluminescence raman",
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/2502_4Hb-TaS2_Raman_RMCD_Attodry.pptx"
   },
   "provenance": {
     "slides": 33
-  }
+  },
+  "_nl_context": "[Slide 0]\n4Hb-TaS2 Raman2502 Attodry Load\nSample: Jack\nSetup + Measure: Mai\n\n[Slide 1]\nOld Data Summary – Polarization Resolved Raman 5.8K\n4L\n6L\n11L\n\n[Slide 2]\n\n[Slide 3]\n(0,0)\n(44,55)\n\n[Slide 4]\nLaser line ends:\n3.59 – -5.72\n13 Feb: After realignment 3.24 -- -4.01\n1.62 mW\n186 degree = 62138 – 8 sec [3.17 -- -4.00]\n276 degree = 63310 – 80 sec [4.04 -- -5.54]\n186 makes the line much narrower than 276?\n\n[Slide 5]\nNbSe2 has 100% of spectral weight transfer from CDW amplitude modes to Higgs mode. Intensity of CDW mode decreases by 50%.\nNo significant spectral weight change (~13% between different powers) observed here, especially on cross-polarization configuration (276 degree).\nCDW amplitude modes in TaS2 also much narrower (5 cm-1) and further from the Higgs mode compared to NbSe2 (20 cm-1), so hard to tell where isosbestic point will be.\n\n[Slide 6]\nCutoff – 3.9\nPower = 1.929 uW\nIntegration time = 2000 sec\n Peak 76 intensity = 0.191 counts/sec/uW\nRealign to cut more\nLower power more  Maybe to 500 nW because laser line still saturates very quickly\nNeed to take background\nComparing high power and lower power data, there is no sign of spectral weight transfer from the CDW amplitude modes.\n500 uW 2 um beam = 10K\n1.93 uW 1 um beam = 0.15 K – 0.77 K?\n1.9uW is not enough to raise temp above Tc.\n1 uW 1 um beam = 0.08 K\nFrom laser line\n\n[Slide 7]\n500 uW 2 um beam = 10K\n 206.2 uW 1 um beam = 16.5 K\nCutoff – 2.2\nPower = 206.2 uW\nIntegration time = 30 sec\nPeak 76 intensity = 0.200 counts/sec/uW\nPeak 94 intensity = 0.0525\n\n[Slide 8]\nCutoff –\nPower = 806 nW\nIntegration time =\n Peak 76 intensity = 0.200 counts/sec/uW\nAnalyzer 276◦\n3000 sec\n1000 sec\n2000 sec\nAnalyzer 186◦\n3000 sec\n2000 sec\n1000 sec\nLaser line suddenly gets very broad?\n2000 sec\n1.9 uW\n8000 sec\n\n[Slide 9]\nBackground subtraction\nAnalyzer 276◦\nPeak 77 intensity = 0.0346 counts/sec/uW\nPeak 94 intensity = 0.0404 counts/sec/uW\nPeak 64 intensity = 0.00289\n417.5 uW\nPeak 77 intensity = 0.0290\nPeak 94 intensity = 0.0327\nPeak 65 intensity = 0.00414\nprocessedData .* 1.7207 - 563.046\nCutoff = 11.7\n\n[Slide 10]\nBackground subtraction\nAnalyzer 186◦\nCutoff = 12.4\nBackground.processedData.* 2.2014 - 784.2257\nPeak 76 intensity = 0.161\nPeak 95 intensity = 0.0506\n\n[Slide 11]\nCutoff –\nPower = 8.429 uW\nAnalyzer 276◦\nAnalyzer 186◦\n800 sec\n120 sec\nPeak 77 intensity = 0.0280 counts/sec/uW\nPeak 94 intensity = 0.0328 counts/sec/uW\nPeak 64 intensity = 0.00292\nPeak 76 intensity = 0.119\nPeak 95 intensity = 0.0404\n\n[Slide 12]\nUsing 2 mirrors to independently control first BNF\n\n[Slide 13]\n11L\nPower = 481 uW\nAnalyzer 103◦\n30 sec\nAnalyzer 192.5◦\n60 sec\nCalculating Stokes / anti-Stokes ratio 481 uW corresponds to 7 K.\nPeak 78 intensity = 0.0676\nPeak 96 intensity = 0.0835\nPeak 78 intensity = 0.390\nPeak 96 intensity = 0.118\n\n[Slide 14]\n11L\nPower = 0.828 uW\nAnalyzer 103◦\n3600 sec\nAnalyzer 192.5◦\n2400 sec\nPeak 78 intensity = 0.0603\nPeak 96 intensity = 0.0854\nCutoff = 3.1696\nPeak 78 intensity = 0.393\nPeak 96 intensity = 0.124\nCutoff = 3.989\n\n[Slide 15]\nBulk\nPower = 434 uW\nAnalyzer 103◦\n60 sec\nAnalyzer 192.5◦\n40 sec\nPeak 78 intensity = 0.0414\nPeak 96 intensity = 0.0557\nPeak 78 intensity = 0.188\nPeak 96 intensity = 0.0711\n\n[Slide 16]\nBulk\nPower = 0.847 uW\nAnalyzer 103◦\n5400 sec\nAnalyzer 192.5◦\n0 sec\nPeak 78 intensity = 0.0424\nPeak 96 intensity = 0.0532\nPeak 78 intensity = 0\nPeak 96 intensity = 0\n\n[Slide 17]\n20 sec till saturation\nSi – 30154.5\nWidth = 5.252\nBNF towards me\nSi – 29810.5\nWidth = 5.331\nBNF towards me\nSi – 22539\nWidth = 5.819\nBNF towards me\nSi – 27390\nWidth = 5.614\n\n[Slide 18]\n20 sec till saturation\nSi – 28499\nWidth = 5.444\nBNF towards me\nSi – 29838\nWidth = 5.345\n16 sec\nSi – 23622\nWidth = 4.963\nSi – 22634\nWidth = 4.955\n\n[Slide 19]\nSi – 21724\nWidth = 5.077\nSi – 1426 cts/sc\nWidth = 4.937\nV UP 10 sec\nSi –\nWidth = 4.670\nV UP 8 sec\nSi – 1395 cts/s\nWidth = 4.554\n\n[Slide 20]\nSi – 1345.25\nWidth = 4.565\nSi – 1431 cts/sc\nWidth = 4.628\nWidth = 4.582\nV UP 8 sec\nSi – 1395 cts/s\nWidth = 4.554\n\n[Slide 21]\n4L\nMinor drift to nearby region? Similar “splitting” observed in C2\n\n[Slide 22]\n0T\n1T\n11L\nCo\nCross\nBlue is plus\nOrange is minus\n\n[Slide 23]\n2T\n4T\nBx = 0.2 T\n11L\n\n[Slide 24]\n4T\n2T\n0T\nCo\n-2T\n-4T\nSi Peak\n\n[Slide 25]\n0T\nSignal 2 times weaker?\nFlake is dying it seems\n4T\n4L\n\n[Slide 26]\n4T\n4L\n0T\n0T\n4T\n0T\n8T\n\n[Slide 27]\nCircular polarization\nM1\nBNF\nLP1\nλ/2\nLP2\nλ/4\nExtinction ratio = 4771:1\nQWP =\nDOCP = 92.8% (463.6 – 535.3)\nAnalyzer =\nAttodry\n\n[Slide 28]\nJanuary measurement\n-- = (276,)\n-+ = (186,)\n++ = (276,)\n+- = (186,)\nDOCP = 90.13%\n\n[Slide 29]\n186, 261.4 – 160 sec\n186, 171.4 – 160 sec\n96, 171.4 – 240 sec\n96, 261.4 – 240 sec\n\n[Slide 30]\n\n[Slide 31]\n\n[Slide 32]\nLaser line ends:\n3.49 --  -2.98\nJohn’s 2D magnon:\n3.31 -- -4.04\nTemperature determination\nAS / S = e-200",
+  "sample": {
+    "supplier": "Jack",
+    "thickness": [
+      "4L",
+      "6L",
+      "11L",
+      "bulk"
+    ],
+    "materials": [
+      "4Hb-TaS2"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "temperature": "5.8K",
+      "magnetic_field": "0T, 1T, 2T, 4T, 8T, -2T, -4T"
+    },
+    "technique": "Polarization-resolved Raman Spectroscopy, Reflectance Magnetic Circular Dichroism (RMCD)"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "4Hb-TaS2",
+    "Raman Spectroscopy",
+    "Charge Density Waves",
+    "Higgs Mode"
+  ],
+  "authors": [
+    "Mai",
+    "Jack"
+  ],
+  "keywords": [
+    "4Hb-TaS2",
+    "Raman Spectroscopy",
+    "RMCD",
+    "Charge Density Wave",
+    "CDW",
+    "Higgs mode",
+    "polarization-resolved",
+    "magnetic field",
+    "circular dichroism",
+    "Attodry",
+    "spectral weight transfer",
+    "Stokes/anti-Stokes"
+  ]
 }

@@ -1,18 +1,50 @@
 {
+  "$schema": null,
+  "title": "Photoluminescence of a TeCl4-grown MoTe2 Monolayer",
+  "description": "Photoluminescence (PL) measurements on a single-gated MoTe2 monolayer device at 8K. The MoTe2 was grown using TeCl4 as a precursor. The presentation contains images of the device and PL spectra taken with a 1070 nm laser.",
+  "type": null,
+  "properties": null,
+  "required": null,
   "schema_version": "deck-schema-v1",
-  "date": "2025-11-03",
-  "materials": [
-    "BN",
-    "MoTe2"
-  ],
-  "temperature_K_range": [
-    8.0,
-    8.0
-  ],
   "file": {
     "path": "/Users/isaacvanorman/AI-local/xu-lab-decks/data/samples/MoTe2 Monolayer.pptx"
   },
   "provenance": {
     "slides": 10
-  }
+  },
+  "_nl_context": "[Slide 0]\nMoTe2 MonolayerTeCl4\nCourtney\n\n[Slide 1]\nSingle gated device\nBottom BN ~35 nm\n\n[Slide 2]\n\n[Slide 3]\n\n[Slide 4]\n\n[Slide 5]\n8K\nblaze 1.2um\n1070 nm\n3uW\n1sec integration\n\n[Slide 6]\n\n[Slide 7]\n\n[Slide 8]\n8K\nblaze 750nm\n1070 nm\n3uW\n1 sec integration\n\n[Slide 9]",
+  "sample": {
+    "geometry": "Single-gated device",
+    "synthesis_method": "TeCl4 growth",
+    "materials": [
+      "MoTe2",
+      "hBN"
+    ]
+  },
+  "measurement": {
+    "parameters": {
+      "laser_power": "3uW",
+      "temperature": "8K",
+      "blaze": "750nm, 1.2um",
+      "excitation_wavelength": "1070 nm",
+      "integration_time": "1 sec"
+    },
+    "technique": "Photoluminescence (PL) Spectroscopy"
+  },
+  "topics": [
+    "Condensed Matter Physics",
+    "2D Materials",
+    "Photoluminescence",
+    "Material Growth"
+  ],
+  "authors": [
+    "Courtney"
+  ],
+  "keywords": [
+    "MoTe2",
+    "monolayer",
+    "photoluminescence",
+    "PL",
+    "TeCl4"
+  ]
 }

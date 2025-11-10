@@ -40,10 +40,10 @@ def _sha256_file(path: str, chunk: int = 1 << 20) -> str:
 def _walk_decks(root: str) -> Iterator[str]:
     for dirpath, _, files in os.walk(root):
         for name in files:
-            if name.startswith("."):
+            if name.startswith((".", "~$")):
                 continue
             low = name.lower()
-            if low.endswith(".pptx") or low.endswith(".pdf"):
+            if low.endswith((".pptx", ".pdf")):
                 yield os.path.join(dirpath, name)
 
 
@@ -68,7 +68,7 @@ def _read_state() -> Dict:
 
 
 def _write_state(st: Dict) -> None:
-    os.makedirs(os.path.dirname(STATE_PATH), exist_ok=True)
+    os.makedirs(os.path.dirname(STATE_PATH) or ".", exist_ok=True)
     st["last_run_iso"] = datetime.utcnow().isoformat(timespec="seconds") + "Z"
     with open(STATE_PATH, "w", encoding="utf-8") as f:
         json.dump(st, f, indent=2)
@@ -78,7 +78,7 @@ def _write_state(st: Dict) -> None:
 # ----------------------
 from datetime import date
 
-_DATE_PAT = re.compile(r"(20\d{2})(?:[._-]?(0[1-9]|1[0-2]))?(?:[._-]?([0-2]\d|3[01]))?")
+_DATE_PAT = re.compile(r"(20\d{2})(?:[._-]?(0[1-p]|1[0-2]))?(?:[._-]?([0-2]\d|3[01]))?")
 
 def _infer_date_from_name(name: str) -> str | None:
     """Return ISO date string (YYYY-MM-DD or YYYY-MM or YYYY) if found in filename."""
@@ -91,14 +91,13 @@ def _infer_date_from_name(name: str) -> str | None:
     if mo:
         return f"{y}-{mo}"
     return y
-
 def _iso_from_mtime(ts: float) -> str:
     return datetime.utcfromtimestamp(ts).date().isoformat()
 
 def _parse_date_filter_from_query(q: str) -> tuple[str | None, str | None]:
     """Extract a coarse date range like '2023-2024' or a single year '2023'. Returns (from_iso, to_iso)."""
     # try ranges like 2023-2024, 2023/2024, 2023 to 2024
-    rng = re.search(r"(20\d{2})\s*(?:[-/]|\s+to\s+)\s*(20\d{2})", q)
+    rng = re.search(r"(20\d{2})\s*(?:[-/]|\\s+to\\s+)\s*(20\d{2})", q)
     if rng:
         y1, y2 = int(rng.group(1)), int(rng.group(2))
         if y1 > y2:
@@ -220,7 +219,7 @@ def _prepare_corpus(root: str = DEF_ROOT, manifest: str = DEF_MAN, slides_dir: s
     ingest(root=root, out=manifest, force=force)
     parse(manifest=manifest, out=slides_dir, force=force)
     # Deterministically build schema and index after parsing
-    build_schema_all(slides_dir=slides_dir, out_dir=DEF_SCHEMA, force=force)
+    draft_schema_all(slides_dir=slides_dir, out_dir=DEF_SCHEMA, force=force, template_md='schema.md')
     index_schema(records_dir=DEF_SCHEMA, out_dir=DEF_SCHEMA_INDEX, force=force)
     st1 = status(root=root, manifest=manifest, slides_dir=slides_dir)
     st1["refreshed"] = True
@@ -725,7 +724,7 @@ _MEAS_MAP = {
     "photoluminescence": "photoluminescence",
     "raman": "raman",
 }
-_NUM_PAT = re.compile(r"(?P<val>[+-]?[0-9]*\.?[0-9]+)\s*(?P<Unit>K|T|V\/nm|V\\/nm|cm\^-2|cm\^\-2|cm-2)")
+_NUM_PAT = re.compile(r"(?P<val>[+-]?[0-9]*\.?[0-9]+)\s*(?P<Unit>K|T|V\/nm|V\\/nm|cm^-2|cm^\-2|cm-2)")
 
 def _derive_schema_from_rows(rows: List[Dict]) -> Dict:
     texts = []
@@ -942,45 +941,25 @@ def draft_schema_record(basename: str, template_md: str, slides_dir: str = DEF_S
     if not rows:
         return {"error": f"no slides for {basename}"}
 
-    # Load template fields
+    # Load template fields to define the shape of the blank schema
     ti = _parse_template_md(template_md)
     order = ti.get("fields_order") or []
     if not order:
         return {"error": "template yielded no fields", "template": os.path.abspath(template_md)}
 
-    # Auto part
-    auto = _derive_schema_from_rows(rows)
-    auto["schema_version"] = SCHEMA_VERSION
-    auto.setdefault("file", {"path": rows[0].get("file", {}).get("path")})
-    auto.setdefault("provenance", {"slides": len(rows)})
+    # Create a blank record with null values for all fields from the template.
+    rec: Dict[str, object] = {k: None for k in order}
 
-    # Draft record in template shape
-    rec: Dict[str, object] = {k: auto.get(k) for k in order}
-    for k in order:
-        if rec.get(k) is None:
-            # Only leave NL fields empty if not auto-detectable
-            if k not in _AUTO_FIELDS:
-                rec[k] = None
-    # Always include the auto fields at the end as well, so nothing is lost if template omits them
-    for k, v in auto.items():
-        if k not in rec:
-            rec[k] = v
+    # Add only essential, non-heuristic metadata.
+    rec["schema_version"] = SCHEMA_VERSION
+    rec["file"] = {"path": rows[0].get("file", {}).get("path")}
+    rec["provenance"] = {"slides": len(rows)}
 
-    # Attach summarization context for the client LLM
+    # Attach the summarization context for the client LLM, which is the primary input for the next step.
     ctx = _assemble_deck_context(rows)
     rec["_nl_context"] = ctx
 
     out_path = os.path.join(out_dir, f"{basename}.schema.json")
-    if os.path.exists(out_path) and not force:
-        # Merge but do not overwrite existing user-provided NL fields
-        try:
-            with open(out_path, "r", encoding="utf-8") as f:
-                prev = json.load(f)
-        except Exception:
-            prev = {}
-        for k in order:
-            if k not in _AUTO_FIELDS and prev.get(k):
-                rec[k] = prev[k]
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(rec, f, indent=2, ensure_ascii=False)
     return {"basename": basename, "schema_path": os.path.abspath(out_path), "template": os.path.abspath(template_md)}
@@ -1009,482 +988,264 @@ def commit_schema_fields(basename: str, updates: Dict, out_dir: str = DEF_SCHEMA
         with open(fp, "r", encoding="utf-8") as f:
             rec = json.load(f)
     except Exception as e:
-        return {"error": f"failed to read schema: {e}"}
+        return {"error": f"failed to read schema: {e}", "schema_path": os.path.abspath(fp)}
 
-    # Only allow updates for non-auto fields (plus "notes"). Others are preserved/merged.
-    for k, v in (updates or {}).items():
-        if k in _AUTO_FIELDS and k != "notes":
-            continue
-        rec[k] = v
+    if not isinstance(updates, dict):
+        return {"error": "updates must be a JSON object"}
 
-    with open(fp, "w", encoding="utf-8") as f:
-        json.dump(rec, f, indent=2, ensure_ascii=False)
-    return {"basename": basename, "schema_path": os.path.abspath(fp), "updated_keys": sorted(list((updates or {}).keys()))}
+    for k, v in updates.items():
+        if k not in _AUTO_FIELDS:
+            rec[k] = v
 
-# ----------------------
-# Schema context & editing helpers/tools
-# ----------------------
-
-def _schema_path_for(basename: str, out_dir: str = DEF_SCHEMA) -> str:
-    return os.path.join(out_dir, f"{basename}.schema.json")
-
-def _load_schema(basename: str, out_dir: str = DEF_SCHEMA) -> Dict:
-    fp = _schema_path_for(basename, out_dir)
-    if not os.path.exists(fp):
-        return {}
     try:
-        with open(fp, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {}
+        with open(fp, "w", encoding="utf-8") as f:
+            json.dump(rec, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        return {"error": f"failed to write updated schema: {e}", "schema_path": os.path.abspath(fp)}
 
-def _save_schema(basename: str, data: Dict, out_dir: str = DEF_SCHEMA) -> str:
-    os.makedirs(out_dir, exist_ok=True)
-    fp = _schema_path_for(basename, out_dir)
-    with open(fp, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-    return os.path.abspath(fp)
+    return {"basename": basename, "schema_path": os.path.abspath(fp), "updated_fields": list(updates.keys())}
 
-def _collect_context_from_rows(rows: List[Dict]) -> str:
-    """Combine slide text, OCR, and any image captions into one big context blob."""
-    parts: List[str] = []
-    for r in rows:
-        sidx = r.get("slide_index")
-        txt = r.get("text") or ""
-        ocr = r.get("ocr") or ""
-        caps = ""
-        if r.get("image_captions"):
-            caps = "\n".join([c.get("caption","") for c in r["image_captions"] if isinstance(c, dict) and c.get("caption")])
-        block = "\n\n".join([p for p in [txt, ocr, caps] if p]).strip()
-        if block:
-            parts.append(f"[Slide {sidx}]\n{block}")
-    return "\n\n".join(parts).strip()
-
-@mcp.tool("deck_context", description="Return a concatenated text context for a deck (slide text + OCR + any image captions).")
-def deck_context(basename: str, slides_dir: str = DEF_SLIDES, max_chars: int = 30000) -> Dict:
-    rows = list(_iter_deck_rows(slides_dir, basename) or [])
-    if not rows:
-        return {"error": f"no slides for {basename}"}
-    ctx = _collect_context_from_rows(rows)
-    if isinstance(max_chars, int) and max_chars > 0 and len(ctx) > max_chars:
-        ctx = ctx[:max_chars] + "…"
-    images = []
-    for r in rows:
-        for p in r.get("images") or []:
-            images.append(os.path.abspath(p))
-    return {
-        "basename": basename,
-        "slides": len(rows),
-        "context": ctx,
-        "images": images[:50],  # cap to avoid giant payloads
-    }
-
-@mcp.tool("schema_draft", description="Produce an automated draft schema for a deck; includes placeholders for natural-language fields.")
-def schema_draft(basename: str, slides_dir: str = DEF_SLIDES) -> Dict:
-    rows = list(_iter_deck_rows(slides_dir, basename) or [])
-    if not rows:
-        return {"error": f"no slides for {basename}"}
-    rec = _derive_schema_from_rows(rows)
-    # Ensure stable container + placeholders for NL fields the client LLM will fill
-    rec.setdefault("schema_version", SCHEMA_VERSION)
-    rec.setdefault("materials", [])
-    rec.setdefault("experiment_type", [])
-    rec.setdefault("temperature_K_range", None)
-    rec.setdefault("magnetic_field_T_range", None)
-    rec.setdefault("summary", None)
-    rec.setdefault("notes", None)
-    rec.setdefault("nl_fields", {
-        "overview": "",
-        "key_findings": "",
-        "methods": "",
-        "open_questions": ""
-    })
-    # provenance
-    file_path = rows[0].get("file", {}).get("path")
-    rec["file"] = {"path": file_path}
-    rec["provenance"] = {"slides": len(rows)}
-    return {"basename": basename, "draft": rec}
-
-@mcp.tool("schema_get", description="Read the saved schema JSON for a deck if present.")
-def schema_get(basename: str, out_dir: str = DEF_SCHEMA) -> Dict:
-    data = _load_schema(basename, out_dir)
-    if not data:
-        return {"error": f"no schema for {basename}", "basename": basename}
-    return {"basename": basename, "schema": data, "schema_path": _schema_path_for(basename, out_dir)}
-
-@mcp.tool("schema_update", description="Merge user/LLM-provided fields into the deck schema and save. Pass a partial dict of fields to upsert.")
-def schema_update(basename: str, fields: Dict, out_dir: str = DEF_SCHEMA) -> Dict:
-    if not isinstance(fields, dict):
-        return {"error": "fields must be an object"}
-    base = _load_schema(basename, out_dir)
-    # If missing, initialize from draft defaults
-    if not base:
-        base = {"schema_version": SCHEMA_VERSION, "nl_fields": {}}
-    # Shallow merge top-level; deep-merge nl_fields if present
-    for k, v in fields.items():
-        if k == "nl_fields" and isinstance(v, dict):
-            base.setdefault("nl_fields", {})
-            base["nl_fields"].update(v)
-        else:
-            base[k] = v
-    path = _save_schema(basename, base, out_dir)
-    return {"basename": basename, "schema_path": path, "updated_keys": list(fields.keys())}
-
-@mcp.tool("schema_missing", description="Given a list of required keys, report which are missing/empty in the deck schema.")
-def schema_missing(basename: str, required: List[str], out_dir: str = DEF_SCHEMA) -> Dict:
-    data = _load_schema(basename, out_dir)
-    if not data:
-        return {"error": f"no schema for {basename}"}
-    missing: List[str] = []
-    for k in required or []:
-        val = data.get(k)
-        if val in (None, "", [], {}):
-            missing.append(k)
-    return {"basename": basename, "missing": missing, "checked": required}
 
 # ----------------------
-# Schema index/search
+# Indexing and searching schema
 # ----------------------
-try:
-    from whoosh import index as _wx_index
-    from whoosh.fields import Schema as _WxSchema, TEXT, ID, DATETIME
-    from whoosh.qparser import MultifieldParser as _WxParser
-except Exception:
-    _wx_index = None
+
+def _index_batch(records: List[Dict], writer):
+    from whoosh.fields import TEXT, ID, KEYWORD, NUMERIC
+    # Add documents to the writer
+    for r in records:
+        path = r.get("file", {}).get("path")
+        if not path: continue
+        # Ranges need to be stored as separate fields for Whoosh
+        temp_range = r.get("temperature_K_range")
+        t_min, t_max = (None, None)
+        if isinstance(temp_range, list) and len(temp_range) == 2:
+            t_min, t_max = temp_range
+        field_range = r.get("magnetic_field_T_range")
+        b_min, b_max = (None, None)
+        if isinstance(field_range, list) and len(field_range) == 2:
+            b_min, b_max = field_range
+        writer.add_document(
+            path=path,
+            basename=os.path.splitext(os.path.basename(path))[0],
+            materials=r.get("materials"),
+            experiment_type=r.get("experiment_type"),
+            summary=r.get("summary"),
+            notes=r.get("notes"),
+            date=r.get("date"),
+            temp_min_k=t_min,
+            temp_max_k=t_max,
+            field_min_t=b_min,
+            field_max_t=b_max,
+        )
 
 @mcp.tool("index_schema", description="Index deck-level schema records for fast search (batched and safe).")
-def index_schema(records_dir: str = DEF_SCHEMA, out_dir: str = DEF_SCHEMA_INDEX, force: bool = False, batch_size: int = 200) -> Dict:
-    import time
-    start_ts = time.time()
-    if _wx_index is None:
-        return {"error": "whoosh not available"}
+def index_schema(records_dir: str = DEF_SCHEMA, out_dir: str = DEF_SCHEMA_INDEX, force: bool = False, batch_size: int = 128) -> Dict:
+    from whoosh.index import create_in, open_dir
+    from whoosh.fields import Schema, TEXT, ID, KEYWORD, NUMERIC
+    from whoosh.writing import AsyncWriter
+
     os.makedirs(out_dir, exist_ok=True)
-
-    schema = _WxSchema(
-        file=ID(stored=True, unique=True),
-        date=TEXT(stored=True),
-        materials=TEXT(stored=True),
-        experiment_type=TEXT(stored=True),
+    schema = Schema(
+        path=ID(stored=True, unique=True),
+        basename=ID(stored=True),
+        materials=KEYWORD(stored=True, commas=True, scorable=True),
+        experiment_type=KEYWORD(stored=True, commas=True, scorable=True),
         summary=TEXT(stored=True),
-        blob=TEXT(stored=False),
+        notes=TEXT(stored=True),
+        date=ID(stored=True),
+        temp_min_k=NUMERIC(float, stored=True),
+        temp_max_k=NUMERIC(float, stored=True),
+        field_min_t=NUMERIC(float, stored=True),
+        field_max_t=NUMERIC(float, stored=True),
     )
+    st = _read_state()
+    slides_fp = st.get("slides_fp")
+    if not force and st.get("schema_index_fp") == slides_fp and st.get("schema_version") == SCHEMA_VERSION:
+        return {"skipped": True, "reason": "index is up-to-date", "index_dir": os.path.abspath(out_dir)}
 
-    # (Re)create index if missing or forced
-    if (not _wx_index.exists_in(out_dir)) or force:
-        try:
-            ix = _wx_index.create_in(out_dir, schema)
-        except Exception:
-            import shutil
-            shutil.rmtree(out_dir, ignore_errors=True)
-            os.makedirs(out_dir, exist_ok=True)
-            ix = _wx_index.create_in(out_dir, schema)
-    else:
-        ix = _wx_index.open_dir(out_dir)
+    ix = create_in(out_dir, schema)
+    writer = AsyncWriter(ix)
+    records = []
+    for jf in glob.glob(os.path.join(records_dir, "*.schema.json")):
+        with open(jf, "r", encoding="utf-8") as f:
+            records.append(json.load(f))
+        if len(records) >= batch_size:
+            _index_batch(records, writer)
+            records = []
+    if records:
+        _index_batch(records, writer)
+    writer.commit()
+    return {"indexed": ix.doc_count(), "index_dir": os.path.abspath(out_dir)}
 
-    files = sorted(glob.glob(os.path.join(records_dir, "*.schema.json")))
-    total = len(files)
-    if total == 0:
-        return {
-            "indexed": 0,
-            "batches": 0,
-            "index_dir": os.path.abspath(out_dir),
-            "records_dir": os.path.abspath(records_dir),
-            "elapsed_s": round(time.time() - start_ts, 3),
-        }
-
-    added = 0
-    batches = 0
-    writer = ix.writer(limitmb=128, procs=1, multisegment=True)
-    try:
-        for i, fp in enumerate(files, 1):
-            try:
-                with open(fp, "r", encoding="utf-8") as f:
-                    d = json.load(f)
-            except Exception:
-                continue
-            file_path = (d.get("file") or {}).get("path") or os.path.splitext(os.path.basename(fp))[0]
-            mat = " ".join(d.get("materials", [])) if isinstance(d.get("materials"), list) else str(d.get("materials") or "")
-            et  = " ".join(d.get("experiment_type", [])) if isinstance(d.get("experiment_type"), list) else str(d.get("experiment_type") or "")
-            date_txt = str(d.get("date") or "")
-            summ = str(d.get("summary") or "")
-            blob = json.dumps(d, ensure_ascii=False)
-            writer.update_document(file=file_path, date=date_txt, materials=mat, experiment_type=et, summary=summ, blob=blob)
-            added += 1
-
-            # Commit in batches so the UI doesn’t look hung on large corpora
-            if batch_size and (i % int(batch_size) == 0):
-                writer.commit()
-                batches += 1
-                writer = ix.writer(limitmb=128, procs=1, multisegment=True)
-        writer.commit()
-    finally:
-        try:
-            writer.close()
-        except Exception:
-            pass
-
-    return {
-        "indexed": added,
-        "batches": batches if batch_size else 1,
-        "batch_size": batch_size,
-        "total_records": total,
-        "index_dir": os.path.abspath(out_dir),
-        "records_dir": os.path.abspath(records_dir),
-        "elapsed_s": round(time.time() - start_ts, 3),
-    }
 
 @mcp.tool("index_schema_one", description="Update the schema index for a single deck by basename; no full rebuild.")
 def index_schema_one(basename: str, records_dir: str = DEF_SCHEMA, out_dir: str = DEF_SCHEMA_INDEX) -> Dict:
-    if _wx_index is None:
-        return {"error": "whoosh not available"}
-    os.makedirs(out_dir, exist_ok=True)
-    fp = os.path.join(records_dir, f"{basename}.schema.json")
-    if not os.path.exists(fp):
-        return {"error": f"schema record not found for {basename}", "schema_path": os.path.abspath(fp)}
-    try:
-        with open(fp, "r", encoding="utf-8") as f:
-            d = json.load(f)
-    except Exception as e:
-        return {"error": f"failed to read schema: {e}"}
+    from whoosh.index import open_dir
+    from whoosh.writing import AsyncWriter
+    if not os.path.exists(out_dir):
+        return {"error": "index does not exist; run index_schema first"}
+    ix = open_dir(out_dir)
+    writer = AsyncWriter(ix)
+    jf = os.path.join(records_dir, f"{basename}.schema.json")
+    if not os.path.exists(jf):
+        return {"error": f"schema record not found for {basename}"}
+    with open(jf, "r", encoding="utf-8") as f:
+        record = json.load(f)
+    _index_batch([record], writer)
+    writer.commit()
+    return {"basename": basename, "indexed": True, "index_dir": os.path.abspath(out_dir)}
 
-    # open or create index
-    if not _wx_index.exists_in(out_dir):
-        schema = _WxSchema(
-            file=ID(stored=True, unique=True),
-            date=TEXT(stored=True),
-            materials=TEXT(stored=True),
-            experiment_type=TEXT(stored=True),
-            summary=TEXT(stored=True),
-            blob=TEXT(stored=False),
-        )
-        ix = _wx_index.create_in(out_dir, schema)
-    else:
-        ix = _wx_index.open_dir(out_dir)
-
-    file_path = (d.get("file") or {}).get("path") or basename
-    mat = " ".join(d.get("materials", [])) if isinstance(d.get("materials"), list) else str(d.get("materials") or "")
-    et  = " ".join(d.get("experiment_type", [])) if isinstance(d.get("experiment_type"), list) else str(d.get("experiment_type") or "")
-    date_txt = str(d.get("date") or "")
-    summ = str(d.get("summary") or "")
-    blob = json.dumps(d, ensure_ascii=False)
-
-    w = ix.writer(limitmb=64, procs=1, multisegment=True)
-    w.update_document(file=file_path, date=date_txt, materials=mat, experiment_type=et, summary=summ, blob=blob)
-    w.commit()
-    return {"basename": basename, "schema_path": os.path.abspath(fp), "index_dir": os.path.abspath(out_dir)}
 
 @mcp.tool("search_schema", description="Search deck-level schema index with alias expansion and optional date parsing")
-def search_schema(q: str, index_dir: str = DEF_SCHEMA_INDEX, k: int = 15) -> Dict:
-    if _wx_index is None:
-        # Fallback: linear scan of JSON files
-        results: List[Dict] = []
-        reg = _aliases_load()
-        start_iso, end_iso = _parse_date_filter_from_query(q)
-        groups = _token_groups_from_query(q, reg)
-        for fp in glob.glob(os.path.join(DEF_SCHEMA, "*.schema.json")):
-            with open(fp, "r", encoding="utf-8") as f:
-                d = json.load(f)
-            date_iso = d.get("date")
-            if not _date_in_range(date_iso, start_iso, end_iso):
-                continue
-            hay = json.dumps(d, ensure_ascii=False)
-            matched, score = _match_groups(hay, groups)
-            if matched:
+def search_schema(q: str, index_dir: str = DEF_SCHEMA_INDEX, k: int = 10) -> Dict:
+    from whoosh.index import open_dir
+    from whoosh.qparser import QueryParser, MultifieldParser
+    from whoosh.query import Term, And, Or
+
+    if not os.path.isdir(index_dir) or not os.path.exists(os.path.join(index_dir, "_MAIN_WRITELOCK")):
+        return {"error": f"index not found at {index_dir}", "results": []}
+
+    ix = open_dir(index_dir)
+    reg = _aliases_load()
+    groups = _token_groups_from_query(q, reg)
+    
+    # Each group is a set of synonyms; documents must match at least one term from each group.
+    # e.g., "twisted MoTe2" -> (twisted OR t-mote2) AND (mote2 OR mo te2)
+    query_parts = []
+    for g in groups:
+        if len(g) == 1:
+            term = next(iter(g))
+            query_parts.append(Or([Term("summary", term), Term("notes", term), Term("materials", term), Term("experiment_type", term)]))
+        else:
+            query_parts.append(Or([Term("summary", t) for t in g] + [Term("notes", t) for t in g] + [Term("materials", t) for t in g] + [Term("experiment_type", t) for t in g]))
+
+    final_query = And(query_parts) if query_parts else None
+
+    results = []
+    if final_query:
+        with ix.searcher() as searcher:
+            res = searcher.search(final_query, limit=k)
+            for hit in res:
                 results.append({
-                    "file": (d.get("file") or {}).get("path"),
-                    "score": int(score),
-                    "summary": d.get("summary"),
-                    "materials": d.get("materials"),
-                    "experiment_type": d.get("experiment_type"),
-                    "date": d.get("date"),
-                    "schema_path": os.path.abspath(fp),
+                    "path": hit.get("path"),
+                    "basename": hit.get("basename"),
+                    "score": hit.score,
+                    "date": hit.get("date"),
+                    "summary": hit.get("summary"),
+                    "materials": hit.get("materials"),
+                    "experiment_type": hit.get("experiment_type"),
                 })
-        results.sort(key=lambda x: -x.get("score", 0))
-        return {"results": results[:k], "total": len(results), "query": q, "fallback": True}
-    # Whoosh path
-    try:
-        ix = _wx_index.open_dir(index_dir)
-    except Exception as e:
-        return {"error": f"failed to open index: {e}"}
-    with ix.searcher() as s:
-        parser = _WxParser(["materials", "experiment_type", "summary", "date"], schema=ix.schema)
-        try:
-            query = parser.parse(q)
-        except Exception:
-            query = parser.parse("summary:" + q)
-        rs = s.search(query, limit=max(1, int(k)))
-        outs: List[Dict] = []
-        for hit in rs:
-            try:
-                blob = json.loads(hit.get("blob")) if hit.get("blob") else {}
-            except Exception:
-                blob = {}
-            outs.append({
-                "file": hit.get("file"),
-                "date": hit.get("date"),
-                "materials": blob.get("materials"),
-                "experiment_type": blob.get("experiment_type"),
-                "summary": hit.get("summary"),
-                "score": int(hit.score or 0),
-            })
-    return {"results": outs, "total": len(outs), "query": q, "index_dir": os.path.abspath(index_dir)}
 
- # ----------------------
- # Caption job protocol (LLM-in-the-client)
- # ----------------------
+    return {"query": q, "expanded_query": str(final_query), "results": results, "count": len(results)}
 
-from dataclasses import dataclass
-
-@dataclass
-class CaptionJob:
-    basename: str
-    slide_index: int
-    figure_id: str
-    image_path: str
-    prompt: str
-    context: Dict
-
-
-def _deck_jsonl_path(slides_dir: str, basename: str) -> str:
-    return os.path.join(slides_dir, f"{basename}.jsonl")
-
-
-def _load_deck_rows(slides_dir: str, basename: str) -> List[Dict]:
-    fp = _deck_jsonl_path(slides_dir, basename)
-    if not os.path.exists(fp):
-        return []
-    rows: List[Dict] = []
-    with open(fp, "r", encoding="utf-8") as f:
-        for line in f:
-            if line.strip():
-                rows.append(json.loads(line))
-    return rows
-
-
-def _write_deck_rows(slides_dir: str, basename: str, rows: List[Dict]) -> None:
-    fp = _deck_jsonl_path(slides_dir, basename)
-    os.makedirs(os.path.dirname(fp) or ".", exist_ok=True)
-    with open(fp, "w", encoding="utf-8") as f:
-        for r in rows:
-            f.write(json.dumps(r, ensure_ascii=False) + "\n")
-
-
-def _build_caption_prompt(deck_name: str, slide_text: str, ocr_text: str | None = None) -> str:
-    parts = [
-        f"You are captioning one figure extracted from the deck: {deck_name}.",
-        "Use ONLY what is visible in the image plus the slide text/ocr for grounding.",
-        "If axes/units are present, mention them succinctly.",
-        "Identify materials, measurement type (transport, MR, Raman, PL, RMCD, IV, reflectance, etc.), and key conditions (T, B, gate voltages) when stated.",
-        "Avoid speculation; prefer precise, neutral wording.",
-    ]
-    ctx = slide_text or ""
-    if ocr_text:
-        ctx = (ctx + "\n" + ocr_text).strip()
-    if ctx:
-        parts.append("Slide context:\n" + ctx)
-    parts.append("Return a single concise caption (1–3 sentences).")
-    return "\n\n".join(parts)
-
+# ----------------------
+# LLM-assisted tools
+# ----------------------
 
 @mcp.tool("prepare_caption_jobs", description="Prepare image-caption jobs for a deck; returns prompts and image paths for the client LLM to caption")
-def prepare_caption_jobs(basename: str, slides_dir: str = DEF_SLIDES, max_images_per_slide: int = 4) -> Dict:
-    rows = _load_deck_rows(slides_dir, basename)
+def prepare_caption_jobs(basename: str, slides_dir: str = DEF_SLIDES, max_images_per_slide: int = 5) -> Dict:
+    rows = list(_iter_deck_rows(slides_dir, basename) or [])
     if not rows:
         return {"error": f"no slides for {basename}"}
-    deck_path = rows[0].get("file", {}).get("path", basename)
-    jobs: List[Dict] = []
+    jobs = []
     for r in rows:
-        sidx = int(r.get("slide_index", -1))
-        imgs: List[str] = list(r.get("images") or [])
+        sidx = r.get("slide_index")
+        text = r.get("text") or ""
+        imgs = r.get("images") or []
         if not imgs:
             continue
-        if max_images_per_slide > 0:
-            imgs = imgs[: int(max_images_per_slide)]
-        prompt = _build_caption_prompt(os.path.basename(deck_path), r.get("text") or "", r.get("ocr"))
-        for ii, imgp in enumerate(imgs):
-            job = {
-                "basename": basename,
+        # For now, a generic prompt. Could be improved.
+        prompt = f"The following slide (index {sidx}) has this text:\\n---\\n{text}\\n---\\nDescribe the key features and data presented in the following image(s) from this slide. Focus on quantitative details if possible."
+        # Limit images to avoid overwhelming the context window
+        for i, img_path in enumerate(imgs[:max_images_per_slide]):
+            jobs.append({
                 "slide_index": sidx,
-                "figure_id": f"s{sidx:03d}-img{ii:02d}",
-                "image_path": os.path.abspath(imgp),
+                "figure_id": f"slide_{sidx}_img_{i}",
                 "prompt": prompt,
-                "context": {
-                    "slide_text": r.get("text") or "",
-                    "ocr": r.get("ocr") or "",
-                    "file": r.get("file") or {},
-                },
-            }
-            jobs.append(job)
+                "image_path": img_path,
+            })
     return {"basename": basename, "jobs": jobs, "count": len(jobs)}
 
 
 @mcp.tool("commit_captions", description="Write LLM-generated captions back into the deck JSONL. Input is a list of {slide_index, figure_id, caption, entities?, numbers?}.")
 def commit_captions(basename: str, captions: List[Dict], slides_dir: str = DEF_SLIDES) -> Dict:
-    rows = _load_deck_rows(slides_dir, basename)
-    if not rows:
+    jf = os.path.join(slides_dir, f"{basename}.jsonl")
+    if not os.path.exists(jf):
         return {"error": f"no slides for {basename}"}
-    # Index rows by slide_index
-    by_idx = {int(r.get("slide_index", -1)): r for r in rows}
-    added = 0
-    for cap in captions or []:
-        sidx = int(cap.get("slide_index", -1))
-        fig_id = cap.get("figure_id") or f"s{sidx:03d}-img"
-        caption_txt = (cap.get("caption") or "").strip()
-        if sidx not in by_idx or not caption_txt:
-            continue
-        r = by_idx[sidx]
-        lst = list(r.get("image_captions") or [])
-        lst.append({
-            "figure_id": fig_id,
-            "caption": caption_txt,
-            "entities": cap.get("entities") or {},
-            "numbers": cap.get("numbers") or {},
-        })
-        r["image_captions"] = lst
-        added += 1
-    # Write back
-    _write_deck_rows(slides_dir, basename, list(by_idx.values()))
-    # Best-effort: refresh schema for this deck and update index so new captions influence search
-    try:
-        build_schema_record(basename=basename, slides_dir=slides_dir, out_dir=DEF_SCHEMA)
-        index_schema_one(basename=basename, records_dir=DEF_SCHEMA, out_dir=DEF_SCHEMA_INDEX)
-    except Exception:
-        pass
-    return {"basename": basename, "captions_added": added, "slides_dir": os.path.abspath(slides_dir)}
+    
+    # Group captions by slide index for efficient updates
+    captions_by_slide: Dict[int, List[Dict]] = {}
+    for cap in captions:
+        sidx = cap.get("slide_index")
+        if sidx is not None:
+            if sidx not in captions_by_slide:
+                captions_by_slide[sidx] = []
+            captions_by_slide[sidx].append(cap)
+
+    rows = list(_iter_deck_rows(slides_dir, basename) or [])
+    updated_rows = 0
+    with open(jf, "w", encoding="utf-8") as f:
+        for r in rows:
+            sidx = r.get("slide_index")
+            if sidx in captions_by_slide:
+                if "image_captions" not in r:
+                    r["image_captions"] = []
+                r["image_captions"].extend(captions_by_slide[sidx])
+                updated_rows +=1
+            f.write(json.dumps(r) + "\n")
+
+    return {"basename": basename, "jsonl_path": os.path.abspath(jf), "updated_slides": updated_rows}
 
 # ----------------------
-# Smart search tool
+# Smart search (schema preferred, fallback to slides)
 # ----------------------
 
 @mcp.tool("smart_search", description="Ensure corpus freshness, then search schema (preferred) with fallback to slide search")
-def smart_search(q: str, k: int = 15, root: str = DEF_ROOT, manifest: str = DEF_MAN, slides_dir: str = DEF_SLIDES) -> Dict:
-    """
-    Ensure corpus is fresh, then search schema (preferred) with fallback to slide search.
-    """
-    # Step 1: Ensure corpus is fresh
-    status_obj = _prepare_corpus(root=root, manifest=manifest, slides_dir=slides_dir, force=False)
-    # Step 2: Try schema search
-    schema_res = search_schema(q=q, index_dir=DEF_SCHEMA_INDEX, k=k)
-    if schema_res.get("error") or schema_res.get("total", 0) == 0:
-        # Fallback: search slides
-        slide_res = search_slides(q=q, slides_dir=slides_dir, k=max(25, k))
-        slide_res["fallback"] = "slides"
-        return slide_res
-    # Otherwise, schema search succeeded
-    schema_res["source"] = "schema"
-    schema_res["status"] = status_obj
-    return schema_res
+def smart_search(q: str, root: str = DEF_ROOT, manifest: str = DEF_MAN, slides_dir: str = DEF_SLIDES, k: int = 10) -> Dict:
+    # Always ensure corpus is fresh before searching
+    fresh_status = _prepare_corpus(root=root, manifest=manifest, slides_dir=slides_dir, force=False)
+    
+    # Try schema search first
+    schema_results = search_schema(q=q, k=k)
+    if not schema_results.get("error") and schema_results.get("results"):
+        return {
+            "search_type": "schema",
+            "results": schema_results["results"],
+            "query": q,
+            "fresh_status": fresh_status,
+        }
+    
+    # Fallback to slide text search
+    slide_results = search_slides(q=q, slides_dir=slides_dir, k=k)
+    # Don't surface needs_refresh error from fallback, as _prepare_corpus already ran
+    if "needs_refresh" in slide_results:
+        del slide_results["needs_refresh"]
+
+    return {
+        "search_type": "slides",
+        "results": slide_results.get("results", []),
+        "query": q,
+        "fresh_status": fresh_status,
+    }
+
 
 # ----------------------
-# Context extraction tool for NL summarization
+# Context extraction for NL summarization
 # ----------------------
 
 @mcp.tool("extract_context", description="Return concatenated slide text, OCR and existing image captions for a deck for use in NL summarization")
-def extract_context(basename: str, slides_dir: str = DEF_SLIDES, max_chars: int = 8000) -> Dict:
+def extract_context(basename: str, slides_dir: str = DEF_SLIDES, max_chars: int = 12000) -> Dict:
     rows = list(_iter_deck_rows(slides_dir, basename) or [])
     if not rows:
         return {"error": f"no slides for {basename}"}
-    return {"basename": basename, "context": _assemble_deck_context(rows, max_chars=max_chars)}
+    
+    ctx = _assemble_deck_context(rows, max_chars)
+    return {
+        "basename": basename,
+        "context": ctx,
+        "chars": len(ctx),
+    }
 
 if __name__ == "__main__":
     mcp.run()
