@@ -1,0 +1,11 @@
+xu-lab-data/data/
+xu-lab-decks/data/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.DS_Store
+.ipynb_checkpoints/
